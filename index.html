@@ -113,9 +113,10 @@
         }
 
         .discord-btn:hover {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
+            background: #8c52ff;
+            color: #fff;
+            border-color: #8c52ff;
+            box-shadow: 0 0 30px rgba(140,82,255,0.35);
         }
 
         /* HERO */
@@ -143,7 +144,23 @@
             text-transform: uppercase;
             margin-bottom: 28px;
         }
+        .hero-content {
+    position: relative;
+}
 
+.hero-content::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background: #8c52ff;
+    filter: blur(180px);
+    opacity: 0.10;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
         h1 {
             font-size: clamp(70px, 14vw, 180px);
             line-height: 0.82;
@@ -174,8 +191,8 @@
         .main-btn {
             display: inline-block;
 
-            background: #fff;
-            color: #000;
+            background: #8c52ff;
+            color: #fff;
 
             text-decoration: none;
 
@@ -190,7 +207,7 @@
 
         .main-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,255,255,0.12);
+            box-shadow: 0 15px 45px rgba(140,82,255,0.40);
         }
 
         .second-btn {
@@ -210,7 +227,9 @@
         }
 
         .second-btn:hover {
-            border-color: #fff;
+            border-color: #8c52ff;
+            color: #8c52ff;
+            box-shadow: 0 0 25px rgba(140,82,255,0.20);
         }
 
         /* SEKCIJE */
@@ -273,7 +292,8 @@
 
         .card:hover {
             transform: translateY(-7px);
-            border-color: #383838;
+            border-color: #8c52ff;
+            box-shadow: 0 10px 40px rgba(140,82,255,0.12);
         }
 
         .card-number {
