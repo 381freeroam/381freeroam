@@ -1,10 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>381 FREEROAM</title>
+    <title>Sirmium Arena | CS 1.6</title>
+    <meta name="description" content="Sirmium Arena - CS 1.6 gaming server. Pridruži se našoj zajednici!">
+    <meta name="theme-color" content="#0a0a0a">
 
     <style>
         * {
@@ -24,109 +27,79 @@
             overflow-x: hidden;
         }
 
-        /* POZADINA */
-        body {
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(140,82,255,0.15),
-                    transparent 35%
-                ),
-                #070707;
+        /* ===== SCROLLBAR ===== */
+
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        /* PROVIDNI LOGO U POZADINI */
-        .background-logo {
-            position: fixed;
-            inset: 0;
-            background-image: url("logo.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: min(1200px, 100vw);
-            opacity: 0.045;
-            filter: grayscale(1);
-            pointer-events: none;
-            z-index: 0;
+        ::-webkit-scrollbar-track {
+            background: #080808;
         }
 
-        nav,
-        main,
-        footer {
-            position: relative;
-            z-index: 1;
+        ::-webkit-scrollbar-thumb {
+            background: #d40000;
+            border-radius: 10px;
         }
 
-        /* NAVIGACIJA */
+        /* ===== HEADER ===== */
 
-        nav {
+        header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 78px;
+            height: 75px;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.90);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
+        }
+
+        .nav {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+            padding: 0 25px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            padding: 0 7%;
-
-            background: rgba(7,7,7,0.72);
-            backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-
-            z-index: 100;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 900;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
         }
 
-        .menu {
+        .logo span {
+            color: #e00000;
+        }
+
+        .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 30px;
             list-style: none;
         }
 
-        .menu a {
-            color: #888;
+        .nav-links a {
+            color: #ddd;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        .menu a:hover {
-            color: #fff;
+        .nav-links a:hover {
+            color: #e00000;
         }
 
-        .discord-btn {
-            color: #fff;
-            text-decoration: none;
-
-            padding: 11px 20px;
-
-            border: 1px solid #8c52ff;
-            border-radius: 30px;
-
-            font-size: 13px;
-
-            transition: 0.3s;
-        }
-
-        .discord-btn:hover {
-            background: #8c52ff;
-            color: #fff;
-            border-color: #8c52ff;
-            box-shadow: 0 0 30px rgba(140,82,255,0.35);
-        }
-
-        /* HERO */
+        /* ===== HERO ===== */
 
         .hero {
             min-height: 100vh;
+            position: relative;
 
             display: flex;
             align-items: center;
@@ -134,439 +107,508 @@
 
             text-align: center;
 
-            padding: 120px 20px 70px;
+            background:
+                radial-gradient(circle at center, rgba(150, 0, 0, 0.18), transparent 45%),
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.95)),
+                #090909;
+
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+
+            mask-image: linear-gradient(to bottom, black, transparent);
         }
 
         .hero-content {
-            max-width: 1000px;
             position: relative;
+            z-index: 2;
+            padding: 20px;
         }
 
-        .small-title {
-            color: #777;
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(220,0,0,0.5);
+            background: rgba(120,0,0,0.15);
+            border-radius: 4px;
+
+            color: #ff3333;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 120px);
+            font-weight: 1000;
+            letter-spacing: -5px;
+            line-height: 0.9;
+
+            text-shadow:
+                0 0 20px rgba(255,0,0,0.25),
+                0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            color: #d90000;
+        }
+
+        .subtitle {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SERVER BOX ===== */
+
+        .server-box {
+            margin: 35px auto 0;
+
+            max-width: 560px;
+            padding: 18px;
+
+            background: rgba(15,15,15,0.85);
+            border: 1px solid rgba(255,0,0,0.22);
+            border-radius: 8px;
+
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+        }
+
+        .server-label {
             font-size: 11px;
-            letter-spacing: 7px;
-            text-transform: uppercase;
-            margin-bottom: 28px;
-        }
-
-        .hero-content::before {
-            content: "";
-            position: absolute;
-
-            width: 500px;
-            height: 300px;
-
-            background: #8c52ff;
-            filter: blur(180px);
-            opacity: 0.10;
-
-            left: 50%;
-            top: 35%;
-
-            transform: translate(-50%, -50%);
-
-            z-index: -1;
-        }
-
-        h1 {
-            font-size: clamp(70px, 14vw, 180px);
-            line-height: 0.82;
-            letter-spacing: -10px;
-            font-weight: 900;
-            margin-bottom: 35px;
-        }
-
-        .hero p {
-            max-width: 570px;
-            margin: auto;
-
             color: #777;
-            font-size: 16px;
-            line-height: 1.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .server-ip {
+            margin: 8px 0 15px;
+
+            font-family: monospace;
+            font-size: 23px;
+            font-weight: bold;
+
+            color: #fff;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 14px;
-
-            margin-top: 40px;
-
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        .main-btn {
-            display: inline-block;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
 
-            background: #8c52ff;
-            color: #fff;
+            padding: 13px 24px;
+
+            border-radius: 5px;
 
             text-decoration: none;
-
-            padding: 15px 28px;
-            border-radius: 30px;
-
+            font-weight: bold;
             font-size: 13px;
-            font-weight: 700;
 
-            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+
+            transition: 0.25s;
         }
 
-        .main-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(140,82,255,0.40);
-        }
-
-        .second-btn {
-            display: inline-block;
-
+        .btn-red {
+            background: #d00000;
             color: #fff;
-            text-decoration: none;
+        }
 
-            padding: 15px 28px;
-            border-radius: 30px;
+        .btn-red:hover {
+            background: #ff0000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220,0,0,0.3);
+        }
 
+        .btn-dark {
+            background: #171717;
+            color: #fff;
             border: 1px solid #292929;
-
-            font-size: 13px;
-
-            transition: 0.3s;
         }
 
-        .second-btn:hover {
-            border-color: #8c52ff;
-            color: #8c52ff;
-            box-shadow: 0 0 25px rgba(140,82,255,0.20);
+        .btn-dark:hover {
+            background: #222;
+            transform: translateY(-2px);
         }
 
-        /* SEKCIJE */
+        /* ===== SECTION ===== */
 
         section {
-            padding: 130px 7%;
+            padding: 100px 20px;
         }
 
-        .section-top {
-            margin-bottom: 55px;
-        }
-
-        .section-number {
-            color: #555;
-            font-size: 11px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
+        .container {
+            max-width: 1100px;
+            margin: auto;
         }
 
         .section-title {
-            font-size: clamp(40px, 6vw, 70px);
-            letter-spacing: -3px;
-            margin-bottom: 15px;
+            text-align: center;
+            margin-bottom: 55px;
         }
 
-        .section-description {
-            color: #666;
-            font-size: 15px;
+        .section-title small {
+            color: #e00000;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
 
-        /* KARTICE */
+        .section-title h2 {
+            margin-top: 10px;
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #777;
+        }
+
+        /* ===== FEATURES ===== */
+
+        .features {
+            background: #0b0b0b;
+        }
 
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .card {
-            min-height: 320px;
-
             padding: 30px;
 
-            border: 1px solid #2a174d;
-            border-radius: 22px;
+            background: #111;
+            border: 1px solid #1e1e1e;
+            border-radius: 8px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(22,22,22,0.95),
-                    rgba(10,10,10,0.95)
-                );
-
-            transition: 0.35s;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-7px);
-            border-color: #8c52ff;
-            box-shadow: 0 10px 40px rgba(140,82,255,0.12);
+            transform: translateY(-6px);
+            border-color: rgba(220,0,0,0.45);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        .card-number {
-            color: #555;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-
-        .card-content h3 {
-            font-size: 27px;
-            margin-bottom: 12px;
-        }
-
-        .card-content p {
-            color: #666;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        /* MUSIC */
-
-        .music-box {
-            min-height: 280px;
-
-            border: 1px solid #1c1c1c;
-            border-radius: 22px;
-
-            background: #0c0c0c;
-
-            padding: 40px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .music-info h3 {
-            font-size: 35px;
-            margin-bottom: 12px;
-        }
-
-        .music-info p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        .music-icon {
-            width: 90px;
-            height: 90px;
-
-            border: 1px solid #292929;
-            border-radius: 50%;
+        .icon {
+            width: 48px;
+            height: 48px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            font-size: 28px;
+            background: rgba(210,0,0,0.12);
+            border: 1px solid rgba(210,0,0,0.25);
+            border-radius: 6px;
+
+            color: #e00000;
+            font-size: 20px;
+
+            margin-bottom: 20px;
         }
 
-        /* DISCORD */
-
-        .discord-section {
-            text-align: center;
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .discord-box {
-            max-width: 900px;
-            margin: auto;
+        .card p {
+            color: #777;
+            line-height: 1.7;
+            font-size: 14px;
+        }
 
-            padding: 90px 30px;
+        /* ===== CONNECT ===== */
 
-            border-radius: 28px;
-            border: 1px solid #1c1c1c;
-
+        .connect {
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(140,82,255,0.12),
-                    transparent 60%
-                ),
-                #0b0b0b;
+                radial-gradient(circle at center, rgba(170,0,0,0.12), transparent 50%),
+                #080808;
         }
 
-        .discord-box .section-number {
-            margin-bottom: 20px;
+        .connect-box {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            background: #101010;
+            border: 1px solid #202020;
+            border-radius: 10px;
         }
 
-        .discord-box h2 {
-            font-size: clamp(40px, 7vw, 75px);
-            letter-spacing: -4px;
-            margin-bottom: 20px;
-        }
-
-        .discord-box p {
-            color: #666;
-            margin-bottom: 35px;
-        }
-
-        /* KONTAKT */
-
-        .contact-box {
-            border: 1px solid #1c1c1c;
-            border-radius: 22px;
-
-            padding: 35px;
-
-            background: #0c0c0c;
-        }
-
-        .contact-label {
-            color: #555;
-            font-size: 11px;
-            letter-spacing: 3px;
+        .connect-box h2 {
+            font-size: 35px;
             margin-bottom: 15px;
         }
 
-        .email {
-            color: #fff;
-            font-size: 24px;
+        .connect-box p {
+            color: #777;
+            margin-bottom: 30px;
         }
 
-        /* FOOTER */
+        .commands {
+            max-width: 600px;
+            margin: 35px auto 0;
+
+            text-align: left;
+        }
+
+        .command {
+            padding: 15px;
+
+            background: #080808;
+            border: 1px solid #1d1d1d;
+            border-radius: 5px;
+
+            margin-bottom: 10px;
+
+            font-family: monospace;
+            color: #ccc;
+        }
+
+        .command span {
+            color: #e00000;
+        }
+
+        /* ===== RULES ===== */
+
+        .rules {
+            background: #0b0b0b;
+        }
+
+        .rules-list {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .rule {
+            display: flex;
+            gap: 18px;
+
+            padding: 20px;
+
+            border-bottom: 1px solid #1d1d1d;
+        }
+
+        .rule-number {
+            color: #e00000;
+            font-weight: 900;
+            font-family: monospace;
+        }
+
+        .rule p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* ===== DISCORD ===== */
+
+        .discord {
+            text-align: center;
+            background: #080808;
+        }
+
+        .discord-box {
+            max-width: 750px;
+            margin: auto;
+
+            padding: 50px 25px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(135deg, rgba(80,60,160,0.12), rgba(0,0,0,0)),
+                #101010;
+
+            border: 1px solid #222;
+        }
+
+        .discord-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .discord-box p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .discord-btn {
+            background: #5865F2;
+            color: white;
+        }
+
+        .discord-btn:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
 
         footer {
-            border-top: 1px solid #181818;
+            padding: 35px 20px;
 
-            padding: 35px 7%;
+            background: #050505;
+            border-top: 1px solid #151515;
 
-            display: flex;
-            justify-content: space-between;
-
-            color: #444;
-            font-size: 12px;
+            text-align: center;
         }
 
-        /* MOBILNI */
+        footer .footer-logo {
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        footer .footer-logo span {
+            color: #d00000;
+        }
+
+        footer p {
+            color: #555;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        /* ===== MOBILE ===== */
 
         @media (max-width: 800px) {
 
-            nav {
-                padding: 0 5%;
-            }
-
-            .menu {
+            .nav-links {
                 display: none;
-            }
-
-            .discord-btn {
-                padding: 9px 15px;
-            }
-
-            h1 {
-                letter-spacing: -6px;
-            }
-
-            section {
-                padding: 90px 5%;
             }
 
             .cards {
                 grid-template-columns: 1fr;
             }
 
-            .music-box {
-                flex-direction: column;
-                align-items: flex-start;
+            .hero h1 {
+                letter-spacing: -3px;
             }
 
-            .music-icon {
-                width: 65px;
-                height: 65px;
+            .subtitle {
+                font-size: 14px;
             }
 
-            footer {
-                flex-direction: column;
-                gap: 10px;
+            section {
+                padding: 75px 15px;
             }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .server-ip {
+                font-size: 18px;
+            }
+        }
+
+        /* ===== ANIMATION ===== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease forwards;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- LOGO U POZADINI -->
-    <div class="background-logo"></div>
+    <!-- HEADER -->
+
+    <header>
+        <nav class="nav">
+
+            <div class="logo">
+                SIRMIUM <span>ARENA</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#pocetna">POČETNA</a></li>
+                <li><a href="#server">SERVER</a></li>
+                <li><a href="#pravila">PRAVILA</a></li>
+                <li><a href="#discord">DISCORD</a></li>
+            </ul>
+
+        </nav>
+    </header>
 
 
-    <!-- NAVIGACIJA -->
+    <!-- HERO -->
 
-    <nav>
+    <section class="hero" id="pocetna">
 
-        <div class="logo">
-            381 FREEROAM
-        </div>
+        <div class="hero-content">
 
-        <ul class="menu">
+            <div class="tag">
+                COUNTER-STRIKE 1.6 SERVER
+            </div>
 
-            <li>
-                <a href="#pocetna">Početna</a>
-            </li>
+            <h1>
+                SIRMIUM<br>
+                <span>ARENA</span>
+            </h1>
 
-            <li>
-                <a href="#stvari">Stvari</a>
-            </li>
+            <p class="subtitle">
+                Dobrodošli na server gde počinje prava akcija.
+            </p>
 
-            <li>
-                <a href="#muzika">Muzika</a>
-            </li>
+            <div class="server-box">
 
-            <li>
-                <a href="#kontakt">Kontakt</a>
-            </li>
-
-        </ul>
-
-        <a
-            class="discord-btn"
-            href="https://discord.gg/fVzKSwPFpb"
-            target="_blank"
-        >
-            Discord ↗
-        </a>
-
-    </nav>
-
-
-    <main>
-
-        <!-- HERO -->
-
-        <div class="hero" id="pocetna">
-
-            <div class="hero-content">
-
-                <div class="small-title">
-                    Welcome to
+                <div class="server-label">
+                    SERVER IP
                 </div>
 
-                <h1>
-                    381 FREEROAM
-                </h1>
-
-                <p>
-                    Nove stvari, muzika i 381freeroam priča.
-                    Sve na jednom mestu.
-                </p>
+                <div class="server-ip" id="serverIP">
+                    185.211.103.141:3076
+                </div>
 
                 <div class="buttons">
 
-                    <a
-                        href="#stvari"
-                        class="main-btn"
-                    >
-                        POGLEDAJ STVARI
-                    </a>
+                    <button class="btn btn-red" onclick="copyIP()">
+                        KOPIRAJ IP
+                    </button>
 
                     <a
-                        href="https://discord.gg/fVzKSwPFpb"
-                        target="_blank"
-                        class="second-btn"
+                        class="btn btn-dark"
+                        href="steam://connect/185.211.103.141:3076"
                     >
-                        UĐI NA DISCORD
+                        POVEŽI SE
                     </a>
 
                 </div>
@@ -575,23 +617,23 @@
 
         </div>
 
+    </section>
 
-        <!-- STVARI -->
 
-        <section id="stvari">
+    <!-- SERVER -->
 
-            <div class="section-top">
+    <section class="features" id="server">
 
-                <div class="section-number">
-                    01 / COLLECTION
-                </div>
+        <div class="container">
 
-                <h2 class="section-title">
-                    Nove stvari
-                </h2>
+            <div class="section-title">
 
-                <p class="section-description">
-                    Najnoviji dropovi i stvari koje dodajemo.
+                <small>SIRMIUM ARENA</small>
+
+                <h2>ZAŠTO BAŠ MI?</h2>
+
+                <p>
+                    Sve što ti treba za dobar CS 1.6 gameplay.
                 </p>
 
             </div>
@@ -601,200 +643,266 @@
 
                 <div class="card">
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="icon">🎯</div>
 
-                    <div class="card-content">
-
-                        <h3>
-                            ODEĆA
-                        </h3>
-
-                        <p>
-                            Ovde ćemo postavljati novu odeću,
-                            komade i kolekcije.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>
-                            NOVI DROP
-                        </h3>
-
-                        <p>
-                            Prostor za najnovije proizvode
-                            i ekskluzivne stvari.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>
-                            SOON
-                        </h3>
-
-                        <p>
-                            Još novih stvari uskoro stiže.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MUZIKA -->
-
-        <section id="muzika">
-
-            <div class="section-top">
-
-                <div class="section-number">
-                    02 / MUSIC
-                </div>
-
-                <h2 class="section-title">
-                    Muzika
-                </h2>
-
-                <p class="section-description">
-                    381freeroam muzika na jednom mestu.
-                </p>
-
-            </div>
-
-
-            <div class="music-box">
-
-                <div class="music-info">
-
-                    <h3>
-                        381FREEROAM MUSIC
-                    </h3>
+                    <h3>FER IGRANJE</h3>
 
                     <p>
-                        Uskoro ovde možemo ubaciti tvoje pesme,
-                        YouTube, Spotify i ostale linkove.
+                        Cilj nam je da održimo kvalitetnu i fer igru
+                        za sve igrače na serveru.
                     </p>
 
                 </div>
 
-                <div class="music-icon">
-                    ♪
+
+                <div class="card">
+
+                    <div class="icon">⚡</div>
+
+                    <h3>BRZA AKCIJA</h3>
+
+                    <p>
+                        Uđi na server, izaberi stranu i kreni u borbu.
+                        Bez nepotrebnog čekanja.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">👑</div>
+
+                    <h3>AKTIVNA ZAJEDNICA</h3>
+
+                    <p>
+                        Druži se sa ostalim igračima i postani deo
+                        Sirmium Arena zajednice.
+                    </p>
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- DISCORD -->
+    <!-- CONNECT -->
 
-        <section class="discord-section">
+    <section class="connect">
+
+        <div class="container">
+
+            <div class="connect-box">
+
+                <h2>KAKO DA UĐEŠ?</h2>
+
+                <p>
+                    Potrebno je samo nekoliko sekundi.
+                </p>
+
+
+                <div class="buttons">
+
+                    <button class="btn btn-red" onclick="copyIP()">
+                        📋 KOPIRAJ IP
+                    </button>
+
+                    <a
+                        class="btn discord-btn"
+                        href="https://discord.gg/gexH9HAxdq"
+                        target="_blank"
+                    >
+                        💬 UĐI NA DISCORD
+                    </a>
+
+                </div>
+
+
+                <div class="commands">
+
+                    <div class="command">
+                        <span>connect</span> 185.211.103.141:3076
+                    </div>
+
+                    <div class="command">
+                        Otvori konzolu u CS 1.6 i nalepi komandu.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RULES -->
+
+    <section class="rules" id="pravila">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <small>SERVER</small>
+
+                <h2>PRAVILA IGRE</h2>
+
+                <p>
+                    Poštuj igrače i uživaj u igri.
+                </p>
+
+            </div>
+
+
+            <div class="rules-list">
+
+                <div class="rule">
+
+                    <div class="rule-number">01</div>
+
+                    <p>
+                        Zabranjeno je korišćenje cheatova, hackova i
+                        bilo kakvih nedozvoljenih programa.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <div class="rule-number">02</div>
+
+                    <p>
+                        Poštuj ostale igrače i članove administracije.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <div class="rule-number">03</div>
+
+                    <p>
+                        Zabranjeno je namerno ometanje igre drugih igrača.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <div class="rule-number">04</div>
+
+                    <p>
+                        Ne zloupotrebljavaj bugove i greške servera.
+                    </p>
+
+                </div>
+
+
+                <div class="rule">
+
+                    <div class="rule-number">05</div>
+
+                    <p>
+                        Administracija zadržava pravo da reaguje u
+                        situacijama koje nisu posebno navedene.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCORD -->
+
+    <section class="discord" id="discord">
+
+        <div class="container">
 
             <div class="discord-box">
 
-                <div class="section-number">
-                    03 / COMMUNITY
-                </div>
-
-                <h2>
-                    Pridruži se.
-                </h2>
+                <h2>PRIDRUŽI SE ZAJEDNICI</h2>
 
                 <p>
-                    Uđi u 381freeroam Discord zajednicu.
+                    Uđi na naš Discord i budi u toku sa svim novostima,
+                    događajima i informacijama.
                 </p>
 
                 <a
-                    href="https://discord.gg/fVzKSwPFpb"
+                    href="https://discord.gg/gexH9HAxdq"
                     target="_blank"
-                    class="main-btn"
+                    class="btn discord-btn"
                 >
-                    JOIN DISCORD
+                    💬 PRIDRUŽI SE DISCORDU
                 </a>
 
             </div>
 
-        </section>
+        </div>
 
-
-        <!-- KONTAKT -->
-
-        <section id="kontakt">
-
-            <div class="section-top">
-
-                <div class="section-number">
-                    04 / CONTACT
-                </div>
-
-                <h2 class="section-title">
-                    Kontakt
-                </h2>
-
-                <p class="section-description">
-                    Za pitanja, saradnju i ostalo.
-                </p>
-
-            </div>
-
-
-            <div class="contact-box">
-
-                <div class="contact-label">
-                    EMAIL
-                </div>
-
-                <div class="email">
-                    EMAIL_CEMO_DODATI
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
+    </section>
 
 
     <!-- FOOTER -->
 
     <footer>
 
-        <span>
-            © 2026 381FREEROAM
-        </span>
+        <div class="footer-logo">
+            SIRMIUM <span>ARENA</span>
+        </div>
 
-        <span>
-            All rights reserved.
-        </span>
+        <p>
+            © 2026 Sirmium Arena. Sva prava zadržana.
+        </p>
+
+        <p>
+            Counter-Strike 1.6 Community Server
+        </p>
 
     </footer>
 
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function copyIP() {
+
+            const ip = "185.211.103.141:3076";
+
+            navigator.clipboard.writeText(ip).then(function() {
+
+                const buttons = document.querySelectorAll(".btn-red");
+
+                buttons.forEach(function(button) {
+
+                    const original = button.innerHTML;
+
+                    button.innerHTML = "✓ IP KOPIRAN";
+
+                    setTimeout(function() {
+                        button.innerHTML = original;
+                    }, 1800);
+
+                });
+
+            });
+
+        }
+
+    </script>
+
 </body>
 </html>
+```
