@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -37,10 +38,6 @@
             background: #e50914;
             color: #fff;
         }
-
-        /* =========================
-           HEADER
-        ========================= */
 
         header {
             position: fixed;
@@ -101,10 +98,6 @@
         .nav-discord:hover {
             background: #4752c4;
         }
-
-        /* =========================
-           HERO
-        ========================= */
 
         .hero {
             min-height: 720px;
@@ -251,10 +244,6 @@
             transform: translateY(-3px);
         }
 
-        /* =========================
-           GENERAL
-        ========================= */
-
         section {
             padding: 90px 20px;
         }
@@ -289,10 +278,6 @@
             color: #777;
             line-height: 1.6;
         }
-
-        /* =========================
-           SERVER STATUS
-        ========================= */
 
         .status-card {
             background: linear-gradient(145deg, #101010, #0b0b0b);
@@ -383,10 +368,6 @@
             font-weight: 900;
         }
 
-        /* =========================
-           PLAYERS
-        ========================= */
-
         .players-box {
             margin-top: 20px;
             background: #101010;
@@ -445,10 +426,6 @@
             font-size: 13px;
         }
 
-        /* =========================
-           FEATURES
-        ========================= */
-
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -491,10 +468,6 @@
             font-size: 13px;
             line-height: 1.7;
         }
-
-        /* =========================
-           VIP
-        ========================= */
 
         .vip-grid {
             display: grid;
@@ -559,10 +532,6 @@
             margin-right: 9px;
         }
 
-        /* =========================
-           NEWS
-        ========================= */
-
         .news-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -594,10 +563,6 @@
             line-height: 1.6;
         }
 
-        /* =========================
-           RULES
-        ========================= */
-
         .rules {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -617,10 +582,6 @@
             color: #fff;
             margin-right: 8px;
         }
-
-        /* =========================
-           DISCORD
-        ========================= */
 
         .discord-box {
             text-align: center;
@@ -647,10 +608,6 @@
         .discord-box .btn {
             margin-top: 25px;
         }
-
-        /* =========================
-           FOOTER
-        ========================= */
 
         footer {
             border-top: 1px solid #1d1d1d;
@@ -680,11 +637,8 @@
             font-size: 12px;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
         @media (max-width: 800px) {
+
             .nav-links a:not(.nav-discord) {
                 display: none;
             }
@@ -721,6 +675,7 @@
         }
 
         @media (max-width: 550px) {
+
             .nav {
                 padding: 0 15px;
             }
@@ -777,10 +732,6 @@
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
     <div class="nav">
 
@@ -789,6 +740,7 @@
         </a>
 
         <nav class="nav-links">
+
             <a href="#server">SERVER</a>
             <a href="#features">FEATURES</a>
             <a href="#vip">VIP</a>
@@ -801,15 +753,11 @@
             >
                 DISCORD
             </a>
+
         </nav>
 
     </div>
 </header>
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <main>
 
@@ -866,11 +814,6 @@
 
 </section>
 
-
-<!-- =========================
-     SERVER STATUS
-========================= -->
-
 <section id="server">
 
     <div class="container">
@@ -887,7 +830,6 @@
 
         </div>
 
-
         <div class="status-card">
 
             <div class="status-top">
@@ -900,16 +842,18 @@
                     ></div>
 
                     <div>
+
                         <div
                             id="status-name"
                             class="status-name"
                         >
-                            Čekanje na server API
+                            Provera servera...
                         </div>
 
                         <div class="status-label">
                             185.211.103.141:3076
                         </div>
+
                     </div>
 
                 </div>
@@ -923,7 +867,6 @@
 
             </div>
 
-
             <div class="status-grid">
 
                 <div class="status-box">
@@ -936,7 +879,6 @@
 
                 </div>
 
-
                 <div class="status-box">
 
                     <span>MAPA</span>
@@ -947,7 +889,6 @@
 
                 </div>
 
-
                 <div class="status-box">
 
                     <span>PING</span>
@@ -957,7 +898,6 @@
                     </strong>
 
                 </div>
-
 
                 <div class="status-box">
 
@@ -973,9 +913,6 @@
 
         </div>
 
-
-        <!-- PLAYERS -->
-
         <div class="players-box">
 
             <div class="players-header">
@@ -990,14 +927,13 @@
 
             </div>
 
-
             <div
                 id="players-list"
                 class="players-list"
             >
 
                 <div class="empty-players">
-                    Čekanje na podatke sa servera...
+                    Provera igrača...
                 </div>
 
             </div>
@@ -1007,11 +943,6 @@
     </div>
 
 </section>
-
-
-<!-- =========================
-     FEATURES
-========================= -->
 
 <section id="features">
 
@@ -1030,14 +961,11 @@
 
         </div>
 
-
         <div class="features">
 
             <div class="feature">
 
-                <div class="feature-icon">
-                    🎯
-                </div>
+                <div class="feature-icon">🎯</div>
 
                 <h3>
                     Stabilan Gameplay
@@ -1050,12 +978,9 @@
 
             </div>
 
-
             <div class="feature">
 
-                <div class="feature-icon">
-                    ⚡
-                </div>
+                <div class="feature-icon">⚡</div>
 
                 <h3>
                     Brz Server
@@ -1068,12 +993,9 @@
 
             </div>
 
-
             <div class="feature">
 
-                <div class="feature-icon">
-                    👥
-                </div>
+                <div class="feature-icon">👥</div>
 
                 <h3>
                     Aktivna Zajednica
@@ -1086,12 +1008,9 @@
 
             </div>
 
-
             <div class="feature">
 
-                <div class="feature-icon">
-                    🛡️
-                </div>
+                <div class="feature-icon">🛡️</div>
 
                 <h3>
                     Admin Tim
@@ -1104,12 +1023,9 @@
 
             </div>
 
-
             <div class="feature">
 
-                <div class="feature-icon">
-                    🏆
-                </div>
+                <div class="feature-icon">🏆</div>
 
                 <h3>
                     Takmičenje
@@ -1122,12 +1038,9 @@
 
             </div>
 
-
             <div class="feature">
 
-                <div class="feature-icon">
-                    💬
-                </div>
+                <div class="feature-icon">💬</div>
 
                 <h3>
                     Discord
@@ -1146,11 +1059,6 @@
 
 </section>
 
-
-<!-- =========================
-     VIP
-========================= -->
-
 <section id="vip">
 
     <div class="container">
@@ -1166,7 +1074,6 @@
             </p>
 
         </div>
-
 
         <div class="vip-grid">
 
@@ -1191,7 +1098,6 @@
 
             </div>
 
-
             <div class="vip featured">
 
                 <div class="vip-tag">
@@ -1213,7 +1119,6 @@
                 </ul>
 
             </div>
-
 
             <div class="vip">
 
@@ -1243,11 +1148,6 @@
 
 </section>
 
-
-<!-- =========================
-     NEWS
-========================= -->
-
 <section>
 
     <div class="container">
@@ -1264,7 +1164,6 @@
 
         </div>
 
-
         <div class="news-grid">
 
             <div class="news">
@@ -1274,16 +1173,15 @@
                 </div>
 
                 <h3>
-                    Server uskoro online
+                    Server online
                 </h3>
 
                 <p>
-                    Pripremamo server za početak rada.
-                    Pozovi ekipu i budi među prvim igračima.
+                    Sirmium Arena server je spreman za igru.
+                    Pozovi ekipu i pridruži se.
                 </p>
 
             </div>
-
 
             <div class="news">
 
@@ -1301,7 +1199,6 @@
                 </p>
 
             </div>
-
 
             <div class="news">
 
@@ -1326,11 +1223,6 @@
 
 </section>
 
-
-<!-- =========================
-     RULES
-========================= -->
-
 <section id="rules">
 
     <div class="container">
@@ -1346,7 +1238,6 @@
             </p>
 
         </div>
-
 
         <div class="rules">
 
@@ -1386,11 +1277,6 @@
 
 </section>
 
-
-<!-- =========================
-     DISCORD
-========================= -->
-
 <section>
 
     <div class="container">
@@ -1422,11 +1308,6 @@
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
     <div class="footer-inner">
@@ -1443,7 +1324,6 @@
 
 </footer>
 
-
 <script>
 
     /* =========================
@@ -1454,18 +1334,11 @@
     const SERVER_PORT = "3076";
 
     /*
-        OVDE ĆEMO KASNIJE UBACITI API.
-
-        Primer:
-
-        const API_URL =
-            "https://tvoj-api.com/api/status";
-
-        Kada napravimo API,
-        promenićemo samo ovu adresu.
+       TVOJ JAVNI RENDER API
     */
 
-    const API_URL = "";
+    const API_URL =
+        "https://sirmium-api.onrender.com/api/status";
 
 
     /* =========================
@@ -1474,25 +1347,34 @@
 
     function copyIP() {
 
-        const ip = SERVER_IP + ":" + SERVER_PORT;
+        const ip =
+            SERVER_IP + ":" + SERVER_PORT;
 
         navigator.clipboard.writeText(ip)
             .then(() => {
 
-                const button = document.querySelector(".copy-btn");
+                const button =
+                    document.querySelector(".copy-btn");
 
-                const oldText = button.innerText;
+                const oldText =
+                    button.innerText;
 
-                button.innerText = "KOPIRANO ✓";
+                button.innerText =
+                    "KOPIRANO ✓";
 
                 setTimeout(() => {
-                    button.innerText = oldText;
+
+                    button.innerText =
+                        oldText;
+
                 }, 1800);
 
             })
             .catch(() => {
 
-                alert("IP servera: " + ip);
+                alert(
+                    "IP servera: " + ip
+                );
 
             });
     }
@@ -1504,11 +1386,53 @@
 
     function escapeHTML(text) {
 
-        const div = document.createElement("div");
+        const div =
+            document.createElement("div");
 
-        div.textContent = text ?? "";
+        div.textContent =
+            text ?? "";
 
         return div.innerHTML;
+    }
+
+
+    /* =========================
+       TIME FORMAT
+    ========================= */
+
+    function formatTime(seconds) {
+
+        if (
+            seconds === undefined ||
+            seconds === null ||
+            isNaN(seconds)
+        ) {
+            return "--";
+        }
+
+        seconds =
+            Math.floor(Number(seconds));
+
+        const hours =
+            Math.floor(seconds / 3600);
+
+        const minutes =
+            Math.floor(
+                (seconds % 3600) / 60
+            );
+
+        if (hours > 0) {
+
+            return (
+                hours +
+                "h " +
+                minutes +
+                "m"
+            );
+
+        }
+
+        return minutes + "m";
     }
 
 
@@ -1518,80 +1442,77 @@
 
     async function loadServerStatus() {
 
-        const dot = document.getElementById("status-dot");
-        const name = document.getElementById("status-name");
-        const badge = document.getElementById("status-badge");
+        const dot =
+            document.getElementById(
+                "status-dot"
+            );
 
-        const players = document.getElementById("server-players");
-        const map = document.getElementById("server-map");
-        const ping = document.getElementById("server-ping");
-        const online = document.getElementById("server-online");
+        const name =
+            document.getElementById(
+                "status-name"
+            );
+
+        const badge =
+            document.getElementById(
+                "status-badge"
+            );
+
+        const players =
+            document.getElementById(
+                "server-players"
+            );
+
+        const map =
+            document.getElementById(
+                "server-map"
+            );
+
+        const ping =
+            document.getElementById(
+                "server-ping"
+            );
+
+        const online =
+            document.getElementById(
+                "server-online"
+            );
 
         const playersCount =
-            document.getElementById("players-count");
+            document.getElementById(
+                "players-count"
+            );
 
         const playersList =
-            document.getElementById("players-list");
-
-
-        /*
-            API JOŠ NIJE POVEZAN.
-
-            Kada API bude napravljen,
-            ova funkcija će automatski
-            prikazivati prave podatke.
-        */
-
-        if (!API_URL) {
-
-            dot.className = "status-dot";
-
-            name.innerText =
-                "Čekanje na server API";
-
-            badge.innerText =
-                "API NIJE POVEZAN";
-
-            players.innerText =
-                "-- / --";
-
-            map.innerText =
-                "--";
-
-            ping.innerText =
-                "--";
-
-            online.innerText =
-                "--";
-
-            playersCount.innerText =
-                "0 igrača";
-
-            playersList.innerHTML = `
-                <div class="empty-players">
-                    Live podaci će se prikazivati
-                    nakon povezivanja server API-ja.
-                </div>
-            `;
-
-            return;
-        }
+            document.getElementById(
+                "players-list"
+            );
 
 
         try {
 
             const response =
-                await fetch(API_URL, {
-                    cache: "no-store"
-                });
+                await fetch(
+                    API_URL + "?t=" + Date.now(),
+                    {
+                        cache: "no-store"
+                    }
+                );
 
             if (!response.ok) {
-                throw new Error("API error");
+
+                throw new Error(
+                    "API HTTP error"
+                );
+
             }
 
             const data =
                 await response.json();
 
+
+            /* =========================
+               ONLINE
+            ========================= */
 
             if (data.online) {
 
@@ -1606,13 +1527,14 @@
                     "ONLINE";
 
                 players.innerText =
-                    `${data.players ?? 0} / ${data.max_players ?? 32}`;
+                    `${data.players ?? 0} / ${data.max_players ?? 30}`;
 
                 map.innerText =
                     data.map || "--";
 
                 ping.innerText =
-                    data.ping
+                    data.ping !== null &&
+                    data.ping !== undefined
                         ? data.ping + " ms"
                         : "--";
 
@@ -1621,19 +1543,25 @@
 
 
                 const playerList =
-                    Array.isArray(data.player_list)
+                    Array.isArray(
+                        data.player_list
+                    )
                         ? data.player_list
                         : [];
 
 
                 playersCount.innerText =
                     playerList.length +
-                    (playerList.length === 1
-                        ? " igrač"
-                        : " igrača");
+                    (
+                        playerList.length === 1
+                            ? " igrač"
+                            : " igrača"
+                    );
 
 
-                if (playerList.length === 0) {
+                if (
+                    playerList.length === 0
+                ) {
 
                     playersList.innerHTML = `
                         <div class="empty-players">
@@ -1645,35 +1573,52 @@
 
                     playersList.innerHTML =
                         playerList
-                            .map((player, index) => {
+                            .map(
+                                (
+                                    player,
+                                    index
+                                ) => {
 
-                                return `
-                                    <div class="player-row">
+                                    return `
+                                        <div class="player-row">
 
-                                        <div class="player-number">
-                                            #${index + 1}
+                                            <div class="player-number">
+                                                #${index + 1}
+                                            </div>
+
+                                            <div>
+                                                ${escapeHTML(
+                                                    player.name ||
+                                                    "Unknown"
+                                                )}
+                                            </div>
+
+                                            <div class="player-score">
+                                                ${player.score ?? 0}
+                                            </div>
+
+                                            <div class="player-time">
+                                                ${formatTime(
+                                                    player.duration
+                                                )}
+                                            </div>
+
                                         </div>
+                                    `;
 
-                                        <div>
-                                            ${escapeHTML(player.name || "Unknown")}
-                                        </div>
-
-                                        <div class="player-score">
-                                            ${player.score ?? 0}
-                                        </div>
-
-                                        <div class="player-time">
-                                            ${formatTime(player.duration)}
-                                        </div>
-
-                                    </div>
-                                `;
-
-                            })
+                                }
+                            )
                             .join("");
+
                 }
 
-            } else {
+            }
+
+            /* =========================
+               OFFLINE
+            ========================= */
+
+            else {
 
                 dot.className =
                     "status-dot offline";
@@ -1708,6 +1653,11 @@
 
 
         } catch (error) {
+
+            console.error(
+                "Sirmium API greška:",
+                error
+            );
 
             dot.className =
                 "status-dot offline";
@@ -1745,51 +1695,15 @@
 
 
     /* =========================
-       TIME FORMAT
-    ========================= */
-
-    function formatTime(seconds) {
-
-        if (
-            seconds === undefined ||
-            seconds === null ||
-            isNaN(seconds)
-        ) {
-            return "--";
-        }
-
-        seconds = Math.floor(Number(seconds));
-
-        const hours =
-            Math.floor(seconds / 3600);
-
-        const minutes =
-            Math.floor((seconds % 3600) / 60);
-
-        if (hours > 0) {
-
-            return (
-                hours +
-                "h " +
-                minutes +
-                "m"
-            );
-
-        }
-
-        return minutes + "m";
-    }
-
-
-    /* =========================
        START
     ========================= */
 
     loadServerStatus();
 
+
     /*
-        Osvežavanje live statusa
-        svakih 15 sekundi.
+       AUTOMATSKO OSVEŽAVANJE
+       SVAKIH 15 SEKUNDI
     */
 
     setInterval(
@@ -1801,3 +1715,4 @@
 
 </body>
 </html>
+```
