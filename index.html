@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sirmium Arena | CS 1.6</title>
-
-    <meta name="description" content="Sirmium Arena - Counter-Strike 1.6 server. Pridruži se najboljoj ekipi!">
-    <meta name="theme-color" content="#e10600">
+    <meta name="description" content="Sirmium Arena - Counter-Strike 1.6 server. Uđi na server i pridruži se zajednici.">
+    <meta name="theme-color" content="#e50914">
 
     <style>
         * {
@@ -23,27 +22,10 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background:
-                radial-gradient(circle at 50% 0%, rgba(225, 6, 0, 0.12), transparent 35%),
+                radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.14), transparent 35%),
                 #070707;
             color: #fff;
             overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background:
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-        }
-
-        ::selection {
-            background: #e10600;
-            color: white;
         }
 
         a {
@@ -51,70 +33,86 @@
             color: inherit;
         }
 
-        /* ================= HEADER ================= */
+        ::selection {
+            background: #e50914;
+            color: #fff;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 75px;
+            height: 72px;
+            z-index: 999;
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .nav {
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+            padding: 0 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 7%;
-            background: rgba(5, 5, 5, 0.88);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
-            z-index: 1000;
         }
 
         .logo {
             font-size: 22px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .logo span {
-            color: #e10600;
+            color: #e50914;
         }
 
-        nav {
+        .nav-links {
             display: flex;
             gap: 28px;
+            align-items: center;
         }
 
-        nav a {
+        .nav-links a {
             color: #aaa;
             font-size: 14px;
             font-weight: 700;
-            transition: 0.3s;
+            transition: 0.25s;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: #fff;
         }
 
         .nav-discord {
-            padding: 10px 17px;
-            border: 1px solid rgba(225, 6, 0, 0.5);
-            border-radius: 8px;
+            background: #5865f2;
             color: #fff !important;
+            padding: 11px 17px;
+            border-radius: 8px;
         }
 
         .nav-discord:hover {
-            background: #e10600;
+            background: #4752c4;
         }
 
-        /* ================= HERO ================= */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 100vh;
+            min-height: 720px;
+            padding: 160px 20px 100px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 20px 80px;
             position: relative;
             overflow: hidden;
         }
@@ -122,634 +120,613 @@
         .hero::before {
             content: "";
             position: absolute;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(circle, rgba(225,6,0,0.22), transparent 68%);
-            top: 5%;
+            width: 700px;
+            height: 700px;
+            background: rgba(229, 9, 20, 0.10);
+            border-radius: 50%;
+            filter: blur(120px);
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            filter: blur(10px);
-            z-index: -1;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 900px;
         }
 
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 9px 16px;
-            border: 1px solid rgba(0,255,120,0.25);
-            background: rgba(0,255,120,0.05);
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid rgba(229, 9, 20, 0.4);
+            background: rgba(229, 9, 20, 0.08);
+            color: #ff4b54;
             border-radius: 50px;
             font-size: 12px;
-            color: #8cffb7;
-            margin-bottom: 25px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #00ff72;
-            border-radius: 50%;
-            box-shadow: 0 0 12px #00ff72;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
-            font-size: clamp(55px, 9vw, 120px);
+            font-size: clamp(55px, 9vw, 105px);
+            line-height: 0.9;
             font-weight: 1000;
             letter-spacing: -5px;
-            line-height: 0.9;
             text-transform: uppercase;
-            text-shadow: 0 0 50px rgba(225,6,0,0.25);
+            text-shadow: 0 0 50px rgba(229, 9, 20, 0.2);
         }
 
         .hero h1 span {
-            color: #e10600;
+            color: #e50914;
         }
 
         .hero-subtitle {
-            margin-top: 28px;
+            margin-top: 25px;
             color: #999;
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.7;
         }
 
         .server-ip {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 22px;
+            margin: 30px auto;
+            max-width: 430px;
+            padding: 16px 20px;
+            border-radius: 12px;
             background: #111;
-            border: 1px solid #262626;
-            border-radius: 10px;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .ip-text {
             font-family: monospace;
             font-size: 17px;
             color: #fff;
         }
 
-        .server-ip span {
-            color: #e10600;
+        .copy-btn {
+            border: none;
+            background: #e50914;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #ff202b;
+            transform: translateY(-2px);
         }
 
         .hero-buttons {
-            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 13px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .btn {
-            border: none;
-            cursor: pointer;
-            padding: 15px 24px;
+            padding: 15px 25px;
             border-radius: 9px;
+            font-weight: 900;
             font-size: 14px;
-            font-weight: 800;
-            transition: 0.3s;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-primary {
-            background: #e10600;
-            color: white;
-            box-shadow: 0 0 25px rgba(225,6,0,0.22);
+        .btn-red {
+            background: #e50914;
+            box-shadow: 0 10px 35px rgba(229, 9, 20, 0.18);
         }
 
-        .btn-primary:hover {
+        .btn-red:hover {
+            background: #ff202b;
             transform: translateY(-3px);
-            background: #ff120b;
-            box-shadow: 0 0 35px rgba(225,6,0,0.4);
         }
 
-        .btn-secondary {
-            background: #121212;
-            color: white;
+        .btn-discord {
+            background: #5865f2;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background: #151515;
             border: 1px solid #292929;
         }
 
-        .btn-secondary:hover {
+        .btn-dark:hover {
+            background: #202020;
             transform: translateY(-3px);
-            border-color: #e10600;
         }
 
-        /* ================= GENERAL ================= */
+        /* =========================
+           GENERAL
+        ========================= */
 
         section {
-            padding: 100px 7%;
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 55px;
+            margin-bottom: 50px;
         }
 
-        .section-title .small {
-            color: #e10600;
+        .section-title small {
+            color: #e50914;
             font-size: 12px;
             font-weight: 900;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
         }
 
         .section-title h2 {
-            font-size: clamp(32px, 5vw, 52px);
+            margin-top: 10px;
+            font-size: 38px;
             font-weight: 900;
         }
 
         .section-title p {
-            margin: 15px auto 0;
+            margin: 12px auto 0;
             max-width: 600px;
             color: #777;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* ================= SERVER STATUS ================= */
-
-        .status-section {
-            padding-top: 50px;
-        }
-
-        .status-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
+        /* =========================
+           SERVER STATUS
+        ========================= */
 
         .status-card {
-            background: linear-gradient(145deg, #111, #0b0b0b);
-            border: 1px solid #202020;
-            border-radius: 14px;
-            padding: 27px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .status-card:hover {
-            border-color: rgba(225,6,0,0.45);
-            transform: translateY(-4px);
-        }
-
-        .status-card .icon {
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
-
-        .status-card h3 {
-            font-size: 23px;
-            margin-bottom: 7px;
-        }
-
-        .status-card p {
-            color: #777;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .online {
-            color: #00ff72;
-        }
-
-        /* ================= MAP ================= */
-
-        .map-box {
-            max-width: 1100px;
-            margin: auto;
-            min-height: 300px;
+            background: linear-gradient(145deg, #101010, #0b0b0b);
+            border: 1px solid #242424;
             border-radius: 18px;
             overflow: hidden;
-            position: relative;
-            background:
-                linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
-                radial-gradient(circle at 70% 40%, rgba(225,6,0,0.22), transparent 40%),
-                #151515;
-            border: 1px solid #252525;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .status-top {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #202020;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .status-title {
             display: flex;
             align-items: center;
-        }
-
-        .map-content {
-            padding: 45px;
-        }
-
-        .map-label {
-            color: #e10600;
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
-
-        .map-content h3 {
-            font-size: 55px;
-            margin: 10px 0;
-        }
-
-        .map-content p {
-            color: #888;
-        }
-
-        .map-tag {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 9px 15px;
-            background: rgba(225,6,0,0.1);
-            border: 1px solid rgba(225,6,0,0.25);
-            color: #ff4b46;
-            border-radius: 7px;
-            font-size: 12px;
-        }
-
-        /* ================= TOP PLAYERS ================= */
-
-        .players-grid {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
             gap: 12px;
         }
 
-        .player {
-            display: grid;
-            grid-template-columns: 60px 1fr 100px 100px;
-            align-items: center;
-            padding: 18px 22px;
-            background: #0f0f0f;
-            border: 1px solid #202020;
-            border-radius: 12px;
-            transition: 0.3s;
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #777;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255,255,255,0.15);
         }
 
-        .player:hover {
-            border-color: rgba(225,6,0,0.4);
-            transform: translateX(5px);
+        .status-dot.online {
+            background: #22c55e;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
         }
 
-        .rank {
-            font-size: 22px;
+        .status-dot.offline {
+            background: #ef4444;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+        }
+
+        .status-name {
             font-weight: 900;
-            color: #555;
         }
 
-        .player:nth-child(1) .rank {
-            color: #e10600;
+        .status-label {
+            font-size: 12px;
+            color: #777;
+            margin-top: 3px;
         }
 
-        .player-name {
+        .status-badge {
+            padding: 8px 12px;
+            border-radius: 7px;
+            background: #191919;
+            color: #aaa;
+            font-size: 12px;
             font-weight: 800;
         }
 
-        .player-name small {
-            display: block;
-            color: #555;
-            font-size: 11px;
-            margin-top: 4px;
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
         }
 
-        .player-stat {
-            text-align: right;
-            color: #aaa;
+        .status-box {
+            padding: 28px 20px;
+            border-right: 1px solid #202020;
+        }
+
+        .status-box:last-child {
+            border-right: none;
+        }
+
+        .status-box span {
+            display: block;
+            color: #666;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .status-box strong {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        /* =========================
+           PLAYERS
+        ========================= */
+
+        .players-box {
+            margin-top: 20px;
+            background: #101010;
+            border: 1px solid #242424;
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .players-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .players-header h3 {
+            font-size: 18px;
+        }
+
+        .players-header span {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .players-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .player-row {
+            display: grid;
+            grid-template-columns: 50px 1fr 100px 100px;
+            align-items: center;
+            padding: 13px 15px;
+            background: #151515;
+            border-radius: 8px;
+            color: #ccc;
             font-size: 13px;
         }
 
-        .player-stat strong {
-            color: white;
-            display: block;
-            font-size: 16px;
+        .player-number {
+            color: #e50914;
+            font-weight: 900;
         }
 
-        /* ================= FEATURES ================= */
+        .player-score,
+        .player-time {
+            text-align: right;
+            color: #777;
+        }
+
+        .empty-players {
+            text-align: center;
+            color: #555;
+            padding: 30px 10px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
 
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 17px;
-            max-width: 1100px;
-            margin: auto;
+            gap: 18px;
         }
 
         .feature {
             padding: 30px;
-            background: #0e0e0e;
-            border: 1px solid #202020;
-            border-radius: 14px;
-            transition: 0.3s;
+            background: #101010;
+            border: 1px solid #222;
+            border-radius: 15px;
+            transition: 0.25s;
         }
 
         .feature:hover {
-            transform: translateY(-6px);
-            border-color: rgba(225,6,0,0.4);
+            transform: translateY(-5px);
+            border-color: rgba(229, 9, 20, 0.4);
         }
 
         .feature-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(225,6,0,0.1);
-            font-size: 23px;
-            margin-bottom: 20px;
+            background: rgba(229, 9, 20, 0.1);
+            color: #e50914;
+            font-size: 20px;
+            margin-bottom: 18px;
         }
 
         .feature h3 {
-            margin-bottom: 10px;
+            margin-bottom: 9px;
+            font-size: 17px;
         }
 
         .feature p {
             color: #777;
-            line-height: 1.6;
-            font-size: 14px;
+            font-size: 13px;
+            line-height: 1.7;
         }
 
-        /* ================= VIP ================= */
+        /* =========================
+           VIP
+        ========================= */
 
         .vip-grid {
-            max-width: 1000px;
-            margin: auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-        .vip-card {
-            padding: 35px 28px;
-            background: linear-gradient(150deg, #111, #090909);
-            border: 1px solid #292929;
+        .vip {
+            background: #101010;
+            border: 1px solid #252525;
             border-radius: 15px;
-            text-align: center;
-            position: relative;
+            padding: 30px;
         }
 
-        .vip-card.featured {
-            border-color: #e10600;
-            box-shadow: 0 0 35px rgba(225,6,0,0.12);
+        .vip.featured {
+            border-color: #e50914;
+            box-shadow: 0 0 35px rgba(229, 9, 20, 0.08);
         }
 
-        .vip-card .popular {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #e10600;
-            padding: 6px 13px;
-            border-radius: 20px;
+        .vip-tag {
+            display: inline-block;
             font-size: 10px;
             font-weight: 900;
+            color: #e50914;
+            margin-bottom: 12px;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .vip-card h3 {
-            font-size: 25px;
-            margin-bottom: 10px;
+        .vip h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
         }
 
         .vip-price {
-            font-size: 35px;
+            font-size: 28px;
             font-weight: 900;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
 
         .vip-price span {
-            color: #777;
-            font-size: 13px;
+            color: #666;
+            font-size: 12px;
+            font-weight: normal;
         }
 
-        .vip-card ul {
+        .vip ul {
             list-style: none;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .vip-card li {
-            color: #999;
-            padding: 8px 0;
-            font-size: 13px;
-            border-bottom: 1px solid #191919;
-        }
-
-        .vip-card li::before {
-            content: "✓";
-            color: #e10600;
-            margin-right: 8px;
-        }
-
-        /* ================= ADMINS ================= */
-
-        .admins {
-            max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .admin {
-            text-align: center;
-            background: #101010;
-            border: 1px solid #202020;
-            padding: 30px 20px;
-            border-radius: 14px;
-        }
-
-        .avatar {
-            width: 75px;
-            height: 75px;
-            margin: auto auto 17px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #e10600, #410000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 27px;
-            font-weight: 900;
-            box-shadow: 0 0 25px rgba(225,6,0,0.2);
-        }
-
-        .admin h3 {
-            margin-bottom: 6px;
-        }
-
-        .admin p {
-            color: #e10600;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        /* ================= NEWS ================= */
-
-        .news-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .news-card {
-            background: #101010;
-            border: 1px solid #202020;
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .news-image {
-            height: 150px;
-            background:
-                radial-gradient(circle at 50% 50%, rgba(225,6,0,0.35), transparent 60%),
-                #181818;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 45px;
-        }
-
-        .news-content {
-            padding: 22px;
-        }
-
-        .news-date {
-            color: #e10600;
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .news-content h3 {
-            margin: 10px 0;
-        }
-
-        .news-content p {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        /* ================= RULES ================= */
-
-        .rules {
-            max-width: 900px;
-            margin: auto;
             display: grid;
             gap: 10px;
         }
 
-        .rule {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 17px 20px;
-            background: #0f0f0f;
-            border: 1px solid #1d1d1d;
-            border-radius: 10px;
+        .vip li {
+            color: #888;
+            font-size: 13px;
         }
 
-        .rule-number {
-            color: #e10600;
+        .vip li::before {
+            content: "✓";
+            color: #e50914;
             font-weight: 900;
-            min-width: 25px;
+            margin-right: 9px;
         }
 
-        .rule p {
-            color: #aaa;
-            font-size: 14px;
+        /* =========================
+           NEWS
+        ========================= */
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
-        /* ================= DISCORD ================= */
-
-        .discord-section {
-            padding-bottom: 120px;
+        .news {
+            background: #101010;
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 25px;
         }
+
+        .news-date {
+            color: #e50914;
+            font-size: 11px;
+            font-weight: 900;
+            margin-bottom: 13px;
+        }
+
+        .news h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .news p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           RULES
+        ========================= */
+
+        .rules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .rule {
+            padding: 18px 20px;
+            background: #101010;
+            border: 1px solid #222;
+            border-radius: 10px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .rule strong {
+            color: #fff;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           DISCORD
+        ========================= */
 
         .discord-box {
-            max-width: 900px;
-            margin: auto;
-            padding: 55px 35px;
             text-align: center;
+            padding: 65px 25px;
             border-radius: 20px;
             background:
-                radial-gradient(circle at 50% 0%, rgba(225,6,0,0.2), transparent 55%),
+                radial-gradient(circle at center, rgba(88, 101, 242, 0.15), transparent 60%),
                 #101010;
-            border: 1px solid #292929;
-        }
-
-        .discord-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
+            border: 1px solid #252525;
         }
 
         .discord-box h2 {
-            font-size: 38px;
+            font-size: 35px;
             margin-bottom: 12px;
         }
 
         .discord-box p {
             color: #777;
-            max-width: 550px;
+            max-width: 600px;
             margin: auto;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* ================= FOOTER ================= */
+        .discord-box .btn {
+            margin-top: 25px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid #1c1c1c;
-            padding: 35px 7%;
+            border-top: 1px solid #1d1d1d;
+            padding: 30px 20px;
+            background: #050505;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-weight: 900;
+        }
+
+        .footer-logo span {
+            color: #e50914;
+        }
+
+        .copyright {
             color: #555;
             font-size: 12px;
         }
 
-        footer strong {
-            color: #aaa;
-        }
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-        /* ================= RESPONSIVE ================= */
-
-        @media (max-width: 900px) {
-
-            nav {
+        @media (max-width: 800px) {
+            .nav-links a:not(.nav-discord) {
                 display: none;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
             }
 
             .status-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .features {
-                grid-template-columns: repeat(2, 1fr);
+            .status-box:nth-child(2) {
+                border-right: none;
             }
 
-            .vip-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
+            .status-box:nth-child(-n+2) {
+                border-bottom: 1px solid #202020;
             }
 
-            .admins {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
+            .features,
+            .vip-grid,
             .news-grid {
                 grid-template-columns: 1fr;
-                max-width: 500px;
+            }
+
+            .rules {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 550px) {
+            .nav {
+                padding: 0 15px;
+            }
 
-            header {
-                padding: 0 20px;
+            .logo {
+                font-size: 18px;
             }
 
             .hero {
@@ -758,65 +735,40 @@
             }
 
             .hero h1 {
-                letter-spacing: -3px;
+                font-size: 54px;
             }
 
             .hero-subtitle {
-                font-size: 14px;
+                font-size: 15px;
             }
 
-            section {
-                padding: 75px 18px;
+            .server-ip {
+                flex-direction: column;
+            }
+
+            .copy-btn {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .status-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 8px;
             }
 
-            .status-card {
-                padding: 20px 10px;
+            .player-row {
+                grid-template-columns: 35px 1fr 60px;
             }
 
-            .status-card h3 {
-                font-size: 18px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .player {
-                grid-template-columns: 40px 1fr 65px;
-            }
-
-            .player .player-stat:last-child {
+            .player-time {
                 display: none;
             }
 
-            .player-stat {
-                font-size: 11px;
-            }
-
-            .map-content {
-                padding: 30px 25px;
-            }
-
-            .map-content h3 {
-                font-size: 40px;
-            }
-
-            .discord-box {
-                padding: 40px 20px;
-            }
-
-            .discord-box h2 {
-                font-size: 29px;
-            }
-
-            footer {
+            .footer-inner {
                 flex-direction: column;
-                gap: 10px;
                 text-align: center;
             }
         }
@@ -825,337 +777,259 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header>
+<header>
+    <div class="nav">
 
-        <a href="#" class="logo">
-            SIRMIUM<span>ARENA</span>
+        <a href="#home" class="logo">
+            SIRMIUM <span>ARENA</span>
         </a>
 
-        <nav>
-            <a href="#server">Server</a>
-            <a href="#players">Players</a>
-            <a href="#features">Features</a>
+        <nav class="nav-links">
+            <a href="#server">SERVER</a>
+            <a href="#features">FEATURES</a>
             <a href="#vip">VIP</a>
-            <a href="#rules">Rules</a>
-            <a href="#discord" class="nav-discord">Discord</a>
+            <a href="#rules">PRAVILA</a>
+
+            <a
+                href="https://discord.gg/gexH9HAxdq"
+                target="_blank"
+                class="nav-discord"
+            >
+                DISCORD
+            </a>
         </nav>
 
-    </header>
+    </div>
+</header>
 
 
-    <!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <section class="hero">
+<main>
 
-        <div class="hero-content">
+<section class="hero" id="home">
 
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                SERVER ONLINE
+    <div class="hero-content">
+
+        <div class="badge">
+            COUNTER-STRIKE 1.6 • BALKAN COMMUNITY
+        </div>
+
+        <h1>
+            SIRMIUM<br>
+            <span>ARENA</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Tvoja nova CS 1.6 destinacija.<br>
+            Uđi na server, zaigraj sa ekipom i postani deo zajednice.
+        </p>
+
+        <div class="server-ip">
+
+            <div class="ip-text">
+                185.211.103.141:3076
             </div>
 
-            <h1>
-                SIRMIUM<br>
-                <span>ARENA</span>
-            </h1>
-
-            <p class="hero-subtitle">
-                Counter-Strike 1.6 server za igrače koji žele
-                dobru atmosferu, fer igru i ozbiljan gameplay.
-            </p>
-
-            <div class="server-ip">
-                IP:
-                <span>185.211.103.141:3076</span>
-            </div>
-
-            <div class="hero-buttons">
-
-                <a
-                    class="btn btn-primary"
-                    href="steam://connect/185.211.103.141:3076"
-                >
-                    🎮 PLAY NOW
-                </a>
-
-                <button
-                    class="btn btn-secondary"
-                    onclick="copyIP()"
-                >
-                    📋 COPY IP
-                </button>
-
-                <a
-                    class="btn btn-secondary"
-                    href="https://discord.gg/gexH9HAxdq"
-                    target="_blank"
-                >
-                    💬 DISCORD
-                </a>
-
-            </div>
+            <button class="copy-btn" onclick="copyIP()">
+                KOPIRAJ IP
+            </button>
 
         </div>
 
-    </section>
+        <div class="hero-buttons">
+
+            <a
+                href="steam://connect/185.211.103.141:3076"
+                class="btn btn-red"
+            >
+                🎮 IGRAJ ODMAH
+            </a>
+
+            <a
+                href="https://discord.gg/gexH9HAxdq"
+                target="_blank"
+                class="btn btn-discord"
+            >
+                💬 DISCORD
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- ================= SERVER STATUS ================= -->
+<!-- =========================
+     SERVER STATUS
+========================= -->
 
-    <section id="server" class="status-section">
+<section id="server">
+
+    <div class="container">
 
         <div class="section-title">
 
-            <span class="small">Server Status</span>
+            <small>SERVER STATUS</small>
 
-            <h2>Live informacije</h2>
+            <h2>Live Server</h2>
 
             <p>
-                Sve najbitnije informacije o Sirmium Arena serveru
-                na jednom mestu.
+                Trenutne informacije o Sirmium Arena serveru.
             </p>
 
         </div>
 
-        <div class="status-grid">
 
-            <div class="status-card">
+        <div class="status-card">
 
-                <div class="icon">🟢</div>
+            <div class="status-top">
 
-                <h3 class="online">
-                    ONLINE
-                </h3>
+                <div class="status-title">
 
-                <p>Status</p>
+                    <div
+                        id="status-dot"
+                        class="status-dot"
+                    ></div>
 
-            </div>
+                    <div>
+                        <div
+                            id="status-name"
+                            class="status-name"
+                        >
+                            Čekanje na server API
+                        </div>
 
-            <div class="status-card">
+                        <div class="status-label">
+                            185.211.103.141:3076
+                        </div>
+                    </div>
 
-                <div class="icon">👥</div>
-
-                <h3>
-                    18 / 32
-                </h3>
-
-                <p>Igrači</p>
-
-            </div>
-
-            <div class="status-card">
-
-                <div class="icon">🗺️</div>
-
-                <h3>
-                    de_dust2
-                </h3>
-
-                <p>Mapa</p>
-
-            </div>
-
-            <div class="status-card">
-
-                <div class="icon">📡</div>
-
-                <h3>
-                    32 ms
-                </h3>
-
-                <p>Ping</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CURRENT MAP ================= -->
-
-    <section>
-
-        <div class="section-title">
-
-            <span class="small">Current Map</span>
-
-            <h2>Trenutna mapa</h2>
-
-        </div>
-
-        <div class="map-box">
-
-            <div class="map-content">
-
-                <div class="map-label">
-                    SIRMIUM ARENA
                 </div>
 
-                <h3>
-                    de_dust2
-                </h3>
+                <div
+                    id="status-badge"
+                    class="status-badge"
+                >
+                    PROVERA...
+                </div>
 
-                <p>
-                    Najpoznatija CS 1.6 mapa svih vremena.
-                </p>
+            </div>
 
-                <div class="map-tag">
-                    CLASSIC MAP
+
+            <div class="status-grid">
+
+                <div class="status-box">
+
+                    <span>IGRAČI</span>
+
+                    <strong id="server-players">
+                        -- / --
+                    </strong>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <span>MAPA</span>
+
+                    <strong id="server-map">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <span>PING</span>
+
+                    <strong id="server-ping">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="status-box">
+
+                    <span>STATUS</span>
+
+                    <strong id="server-online">
+                        --
+                    </strong>
+
                 </div>
 
             </div>
 
         </div>
 
-    </section>
+
+        <!-- PLAYERS -->
+
+        <div class="players-box">
+
+            <div class="players-header">
+
+                <h3>
+                    Trenutni igrači
+                </h3>
+
+                <span id="players-count">
+                    0 igrača
+                </span>
+
+            </div>
 
 
-    <!-- ================= TOP PLAYERS ================= -->
+            <div
+                id="players-list"
+                class="players-list"
+            >
 
-    <section id="players">
+                <div class="empty-players">
+                    Čekanje na podatke sa servera...
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section id="features">
+
+    <div class="container">
 
         <div class="section-title">
 
-            <span class="small">Leaderboard</span>
+            <small>ZAŠTO SIRMIUM ARENA?</small>
 
-            <h2>Top igrači</h2>
+            <h2>Sve što ti treba</h2>
 
             <p>
-                Najbolji igrači na Sirmium Areni.
+                Napravljen za igrače koji žele dobar CS 1.6 gameplay
+                i aktivnu zajednicu.
             </p>
 
         </div>
 
-        <div class="players-grid">
-
-            <div class="player">
-
-                <div class="rank">01</div>
-
-                <div class="player-name">
-                    Sirmium | K1NG
-                    <small>Online</small>
-                </div>
-
-                <div class="player-stat">
-                    <strong>2.41</strong>
-                    K/D
-                </div>
-
-                <div class="player-stat">
-                    <strong>1840</strong>
-                    SCORE
-                </div>
-
-            </div>
-
-
-            <div class="player">
-
-                <div class="rank">02</div>
-
-                <div class="player-name">
-                    BALKAN BEAST
-                    <small>Online</small>
-                </div>
-
-                <div class="player-stat">
-                    <strong>2.18</strong>
-                    K/D
-                </div>
-
-                <div class="player-stat">
-                    <strong>1695</strong>
-                    SCORE
-                </div>
-
-            </div>
-
-
-            <div class="player">
-
-                <div class="rank">03</div>
-
-                <div class="player-name">
-                    AK47 | DARK
-                    <small>Online</small>
-                </div>
-
-                <div class="player-stat">
-                    <strong>1.96</strong>
-                    K/D
-                </div>
-
-                <div class="player-stat">
-                    <strong>1530</strong>
-                    SCORE
-                </div>
-
-            </div>
-
-
-            <div class="player">
-
-                <div class="rank">04</div>
-
-                <div class="player-name">
-                    S4MURAI
-                    <small>Online</small>
-                </div>
-
-                <div class="player-stat">
-                    <strong>1.84</strong>
-                    K/D
-                </div>
-
-                <div class="player-stat">
-                    <strong>1420</strong>
-                    SCORE
-                </div>
-
-            </div>
-
-
-            <div class="player">
-
-                <div class="rank">05</div>
-
-                <div class="player-name">
-                    HEADSHOT
-                    <small>Online</small>
-                </div>
-
-                <div class="player-stat">
-                    <strong>1.72</strong>
-                    K/D
-                </div>
-
-                <div class="player-stat">
-                    <strong>1310</strong>
-                    SCORE
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FEATURES ================= -->
-
-    <section id="features">
-
-        <div class="section-title">
-
-            <span class="small">Why Sirmium</span>
-
-            <h2>Zašto igrati kod nas?</h2>
-
-        </div>
 
         <div class="features">
 
@@ -1165,11 +1039,13 @@
                     🎯
                 </div>
 
-                <h3>Fair Play</h3>
+                <h3>
+                    Stabilan Gameplay
+                </h3>
 
                 <p>
-                    Aktivna administracija i jasna pravila
-                    bez nepotrebnog maltretiranja igrača.
+                    Fokus na stabilan server, dobar gameplay
+                    i što bolje iskustvo za sve igrače.
                 </p>
 
             </div>
@@ -1181,11 +1057,31 @@
                     ⚡
                 </div>
 
-                <h3>Stabilan Server</h3>
+                <h3>
+                    Brz Server
+                </h3>
 
                 <p>
-                    Stabilan gameplay i optimizovan server
-                    za što bolje iskustvo.
+                    Optimizovan server za brzo učitavanje
+                    i kvalitetnu igru.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Aktivna Zajednica
+                </h3>
+
+                <p>
+                    Druži se, upoznaj nove igrače i
+                    priključi se našoj Discord zajednici.
                 </p>
 
             </div>
@@ -1197,11 +1093,13 @@
                     🛡️
                 </div>
 
-                <h3>Anti-Cheat</h3>
+                <h3>
+                    Admin Tim
+                </h3>
 
                 <p>
-                    Zaštita servera i aktivna kontrola protiv
-                    cheatovanja.
+                    Aktivni administratori brinu o redu,
+                    pravilima i kvalitetu servera.
                 </p>
 
             </div>
@@ -1210,30 +1108,16 @@
             <div class="feature">
 
                 <div class="feature-icon">
-                    👑
+                    🏆
                 </div>
 
-                <h3>VIP Sistem</h3>
+                <h3>
+                    Takmičenje
+                </h3>
 
                 <p>
-                    Posebne pogodnosti i privilegije za
-                    igrače koji podržavaju server.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🎁
-                </div>
-
-                <h3>Eventi</h3>
-
-                <p>
-                    Organizujemo posebne evente, takmičenja
-                    i nagrade za aktivne igrače.
+                    Sakupljaj score, napreduj i pokaži
+                    da si najbolji igrač.
                 </p>
 
             </div>
@@ -1245,29 +1129,37 @@
                     💬
                 </div>
 
-                <h3>Community</h3>
+                <h3>
+                    Discord
+                </h3>
 
                 <p>
-                    Druženje i komunikacija preko našeg
-                    Discord community-ja.
+                    Sve informacije, novosti i komunikacija
+                    dostupni su na našem Discord serveru.
                 </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= VIP ================= -->
+<!-- =========================
+     VIP
+========================= -->
 
-    <section id="vip">
+<section id="vip">
+
+    <div class="container">
 
         <div class="section-title">
 
-            <span class="small">VIP System</span>
+            <small>VIP</small>
 
-            <h2>VIP paketi</h2>
+            <h2>VIP Paketi</h2>
 
             <p>
                 Podrži server i otključaj dodatne pogodnosti.
@@ -1275,345 +1167,637 @@
 
         </div>
 
+
         <div class="vip-grid">
 
-            <div class="vip-card">
+            <div class="vip">
+
+                <div class="vip-tag">
+                    STARTER
+                </div>
 
                 <h3>VIP</h3>
 
                 <div class="vip-price">
-                    5€ <span>/ mesec</span>
+                    TBD
+                    <span>/ mesečno</span>
                 </div>
 
                 <ul>
-                    <li>VIP tag</li>
-                    <li>VIP chat boja</li>
-                    <li>Prioritet pri ulasku</li>
+                    <li>VIP privilegije</li>
+                    <li>VIP status</li>
                     <li>Posebne pogodnosti</li>
                 </ul>
 
             </div>
 
 
-            <div class="vip-card featured">
+            <div class="vip featured">
 
-                <div class="popular">
+                <div class="vip-tag">
                     NAJPOPULARNIJI
                 </div>
 
                 <h3>VIP+</h3>
 
                 <div class="vip-price">
-                    8€ <span>/ mesec</span>
+                    TBD
+                    <span>/ mesečno</span>
                 </div>
 
                 <ul>
                     <li>Sve iz VIP paketa</li>
-                    <li>Veći prioritet</li>
-                    <li>Poseban VIP skin</li>
-                    <li>Dodatne pogodnosti</li>
+                    <li>Dodatne privilegije</li>
+                    <li>VIP+ status</li>
+                    <li>Posebne pogodnosti</li>
                 </ul>
 
             </div>
 
 
-            <div class="vip-card">
+            <div class="vip">
+
+                <div class="vip-tag">
+                    PREMIUM
+                </div>
 
                 <h3>ELITE</h3>
 
                 <div class="vip-price">
-                    12€ <span>/ mesec</span>
+                    TBD
+                    <span>/ mesečno</span>
                 </div>
 
                 <ul>
                     <li>Sve VIP+ pogodnosti</li>
-                    <li>Najveći prioritet</li>
-                    <li>Elite tag</li>
-                    <li>Posebne privilegije</li>
+                    <li>Premium privilegije</li>
+                    <li>Elite status</li>
+                    <li>Poseban tretman</li>
                 </ul>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= ADMINS ================= -->
+<!-- =========================
+     NEWS
+========================= -->
 
-    <section>
+<section>
+
+    <div class="container">
 
         <div class="section-title">
 
-            <span class="small">Administration</span>
+            <small>NOVOSTI</small>
 
-            <h2>Administracija</h2>
+            <h2>Najnovije</h2>
 
             <p>
-                Ljudi koji brinu da Sirmium Arena ostane
-                fer i zabavna za sve.
+                Pratite najnovije informacije vezane za Sirmium Arenu.
             </p>
 
         </div>
 
-        <div class="admins">
-
-            <div class="admin">
-
-                <div class="avatar">
-                    S
-                </div>
-
-                <h3>Sirmium</h3>
-
-                <p>Owner</p>
-
-            </div>
-
-
-            <div class="admin">
-
-                <div class="avatar">
-                    A
-                </div>
-
-                <h3>Admin</h3>
-
-                <p>Head Admin</p>
-
-            </div>
-
-
-            <div class="admin">
-
-                <div class="avatar">
-                    M
-                </div>
-
-                <h3>Moderator</h3>
-
-                <p>Moderator</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= NEWS ================= -->
-
-    <section>
-
-        <div class="section-title">
-
-            <span class="small">News</span>
-
-            <h2>Najnovije informacije</h2>
-
-        </div>
 
         <div class="news-grid">
 
-            <div class="news-card">
+            <div class="news">
 
-                <div class="news-image">
-                    🔥
+                <div class="news-date">
+                    SIRMIUM ARENA
                 </div>
 
-                <div class="news-content">
+                <h3>
+                    Server uskoro online
+                </h3>
 
-                    <div class="news-date">
-                        NOVOST
-                    </div>
-
-                    <h3>
-                        Sirmium Arena je otvorena!
-                    </h3>
-
-                    <p>
-                        Pridruži se serveru i postani deo
-                        naše CS 1.6 zajednice.
-                    </p>
-
-                </div>
+                <p>
+                    Pripremamo server za početak rada.
+                    Pozovi ekipu i budi među prvim igračima.
+                </p>
 
             </div>
 
 
-            <div class="news-card">
+            <div class="news">
 
-                <div class="news-image">
-                    🏆
+                <div class="news-date">
+                    DISCORD
                 </div>
 
-                <div class="news-content">
+                <h3>
+                    Pridruži se zajednici
+                </h3>
 
-                    <div class="news-date">
-                        EVENT
-                    </div>
-
-                    <h3>
-                        Uskoro prvi turnir
-                    </h3>
-
-                    <p>
-                        Prati Discord za informacije o
-                        prvom community turniru.
-                    </p>
-
-                </div>
+                <p>
+                    Uđi na naš Discord i prati sve informacije,
+                    najave i događaje.
+                </p>
 
             </div>
 
 
-            <div class="news-card">
+            <div class="news">
 
-                <div class="news-image">
-                    ⚡
+                <div class="news-date">
+                    SOON
                 </div>
 
-                <div class="news-content">
+                <h3>
+                    Još mnogo toga dolazi
+                </h3>
 
-                    <div class="news-date">
-                        UPDATE
-                    </div>
-
-                    <h3>
-                        Novi sistemi
-                    </h3>
-
-                    <p>
-                        Radimo na novim funkcijama,
-                        mapama i sistemima za server.
-                    </p>
-
-                </div>
+                <p>
+                    Novi sistemi, događaji i dodatne funkcije
+                    biće dodavani tokom vremena.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= RULES ================= -->
+<!-- =========================
+     RULES
+========================= -->
 
-    <section id="rules">
+<section id="rules">
+
+    <div class="container">
 
         <div class="section-title">
 
-            <span class="small">Server Rules</span>
+            <small>SERVER RULES</small>
 
             <h2>Pravila servera</h2>
 
+            <p>
+                Poštuj pravila i ostale igrače.
+            </p>
+
         </div>
+
 
         <div class="rules">
 
             <div class="rule">
-                <div class="rule-number">01</div>
-                <p>Zabranjeno je korišćenje cheatova i skripti.</p>
+                <strong>01.</strong>
+                Zabranjeno je vređanje i omalovažavanje igrača.
             </div>
 
             <div class="rule">
-                <div class="rule-number">02</div>
-                <p>Zabranjeno je vređanje drugih igrača i administracije.</p>
+                <strong>02.</strong>
+                Zabranjen je cheat, hack i bilo kakav nedozvoljeni program.
             </div>
 
             <div class="rule">
-                <div class="rule-number">03</div>
-                <p>Zabranjen je spam i nepotrebno ometanje igre.</p>
+                <strong>03.</strong>
+                Poštuj odluke administratora.
             </div>
 
             <div class="rule">
-                <div class="rule-number">04</div>
-                <p>Poštuj ostale igrače i igraj fer.</p>
+                <strong>04.</strong>
+                Zabranjeno je reklamiranje drugih servera.
             </div>
 
             <div class="rule">
-                <div class="rule-number">05</div>
-                <p>Odluke administracije moraju se poštovati.</p>
+                <strong>05.</strong>
+                Zabranjeno je namerno ometanje igre.
+            </div>
+
+            <div class="rule">
+                <strong>06.</strong>
+                Koristi normalan nick i ponašaj se korektno.
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= DISCORD ================= -->
+<!-- =========================
+     DISCORD
+========================= -->
 
-    <section id="discord" class="discord-section">
+<section>
+
+    <div class="container">
 
         <div class="discord-box">
-
-            <div class="discord-icon">
-                💬
-            </div>
 
             <h2>
                 Pridruži se Discordu
             </h2>
 
             <p>
-                Uđi u naš Discord server, prati novosti,
-                prijavi igrača, razgovaraj sa zajednicom
-                i saznaj kada su sledeći eventi.
+                Uđi u Sirmium Arena zajednicu, upoznaj igrače,
+                prati novosti i saznaj sve informacije o serveru.
             </p>
 
-            <div style="margin-top: 28px;">
-
-                <a
-                    href="https://discord.gg/gexH9HAxdq"
-                    target="_blank"
-                    class="btn btn-primary"
-                >
-                    UĐI NA DISCORD
-                </a>
-
-            </div>
+            <a
+                href="https://discord.gg/gexH9HAxdq"
+                target="_blank"
+                class="btn btn-discord"
+            >
+                💬 PRIDRUŽI SE DISCORDU
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+</main>
 
 
-    <!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
-    <footer>
+<footer>
 
-        <div>
-            © 2026 <strong>Sirmium Arena</strong>
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+            SIRMIUM <span>ARENA</span>
         </div>
 
-        <div>
-            Counter-Strike 1.6 Community
+        <div class="copyright">
+            © 2026 Sirmium Arena. Sva prava zadržana.
         </div>
 
-    </footer>
+    </div>
+
+</footer>
 
 
-    <!-- ================= JAVASCRIPT ================= -->
+<script>
 
-    <script>
+    /* =========================
+       SERVER SETTINGS
+    ========================= */
 
-        function copyIP() {
+    const SERVER_IP = "185.211.103.141";
+    const SERVER_PORT = "3076";
 
-            const ip = "185.211.103.141:3076";
+    /*
+        OVDE ĆEMO KASNIJE UBACITI API.
 
-            navigator.clipboard.writeText(ip).then(function () {
+        Primer:
 
-                alert("IP adresa je kopirana: " + ip);
+        const API_URL =
+            "https://tvoj-api.com/api/status";
 
-            }).catch(function () {
+        Kada napravimo API,
+        promenićemo samo ovu adresu.
+    */
 
-                prompt("Kopiraj IP adresu:", ip);
+    const API_URL = "";
+
+
+    /* =========================
+       COPY IP
+    ========================= */
+
+    function copyIP() {
+
+        const ip = SERVER_IP + ":" + SERVER_PORT;
+
+        navigator.clipboard.writeText(ip)
+            .then(() => {
+
+                const button = document.querySelector(".copy-btn");
+
+                const oldText = button.innerText;
+
+                button.innerText = "KOPIRANO ✓";
+
+                setTimeout(() => {
+                    button.innerText = oldText;
+                }, 1800);
+
+            })
+            .catch(() => {
+
+                alert("IP servera: " + ip);
 
             });
+    }
+
+
+    /* =========================
+       ESCAPE HTML
+    ========================= */
+
+    function escapeHTML(text) {
+
+        const div = document.createElement("div");
+
+        div.textContent = text ?? "";
+
+        return div.innerHTML;
+    }
+
+
+    /* =========================
+       SERVER STATUS
+    ========================= */
+
+    async function loadServerStatus() {
+
+        const dot = document.getElementById("status-dot");
+        const name = document.getElementById("status-name");
+        const badge = document.getElementById("status-badge");
+
+        const players = document.getElementById("server-players");
+        const map = document.getElementById("server-map");
+        const ping = document.getElementById("server-ping");
+        const online = document.getElementById("server-online");
+
+        const playersCount =
+            document.getElementById("players-count");
+
+        const playersList =
+            document.getElementById("players-list");
+
+
+        /*
+            API JOŠ NIJE POVEZAN.
+
+            Kada API bude napravljen,
+            ova funkcija će automatski
+            prikazivati prave podatke.
+        */
+
+        if (!API_URL) {
+
+            dot.className = "status-dot";
+
+            name.innerText =
+                "Čekanje na server API";
+
+            badge.innerText =
+                "API NIJE POVEZAN";
+
+            players.innerText =
+                "-- / --";
+
+            map.innerText =
+                "--";
+
+            ping.innerText =
+                "--";
+
+            online.innerText =
+                "--";
+
+            playersCount.innerText =
+                "0 igrača";
+
+            playersList.innerHTML = `
+                <div class="empty-players">
+                    Live podaci će se prikazivati
+                    nakon povezivanja server API-ja.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        try {
+
+            const response =
+                await fetch(API_URL, {
+                    cache: "no-store"
+                });
+
+            if (!response.ok) {
+                throw new Error("API error");
+            }
+
+            const data =
+                await response.json();
+
+
+            if (data.online) {
+
+                dot.className =
+                    "status-dot online";
+
+                name.innerText =
+                    data.hostname ||
+                    "Sirmium Arena";
+
+                badge.innerText =
+                    "ONLINE";
+
+                players.innerText =
+                    `${data.players ?? 0} / ${data.max_players ?? 32}`;
+
+                map.innerText =
+                    data.map || "--";
+
+                ping.innerText =
+                    data.ping
+                        ? data.ping + " ms"
+                        : "--";
+
+                online.innerText =
+                    "ONLINE";
+
+
+                const playerList =
+                    Array.isArray(data.player_list)
+                        ? data.player_list
+                        : [];
+
+
+                playersCount.innerText =
+                    playerList.length +
+                    (playerList.length === 1
+                        ? " igrač"
+                        : " igrača");
+
+
+                if (playerList.length === 0) {
+
+                    playersList.innerHTML = `
+                        <div class="empty-players">
+                            Trenutno nema igrača na serveru.
+                        </div>
+                    `;
+
+                } else {
+
+                    playersList.innerHTML =
+                        playerList
+                            .map((player, index) => {
+
+                                return `
+                                    <div class="player-row">
+
+                                        <div class="player-number">
+                                            #${index + 1}
+                                        </div>
+
+                                        <div>
+                                            ${escapeHTML(player.name || "Unknown")}
+                                        </div>
+
+                                        <div class="player-score">
+                                            ${player.score ?? 0}
+                                        </div>
+
+                                        <div class="player-time">
+                                            ${formatTime(player.duration)}
+                                        </div>
+
+                                    </div>
+                                `;
+
+                            })
+                            .join("");
+                }
+
+            } else {
+
+                dot.className =
+                    "status-dot offline";
+
+                name.innerText =
+                    "Sirmium Arena";
+
+                badge.innerText =
+                    "OFFLINE";
+
+                players.innerText =
+                    "0 / --";
+
+                map.innerText =
+                    "--";
+
+                ping.innerText =
+                    "--";
+
+                online.innerText =
+                    "OFFLINE";
+
+                playersCount.innerText =
+                    "0 igrača";
+
+                playersList.innerHTML = `
+                    <div class="empty-players">
+                        Server trenutno nije dostupan.
+                    </div>
+                `;
+            }
+
+
+        } catch (error) {
+
+            dot.className =
+                "status-dot offline";
+
+            name.innerText =
+                "Server API nedostupan";
+
+            badge.innerText =
+                "GREŠKA";
+
+            players.innerText =
+                "-- / --";
+
+            map.innerText =
+                "--";
+
+            ping.innerText =
+                "--";
+
+            online.innerText =
+                "--";
+
+            playersCount.innerText =
+                "0 igrača";
+
+            playersList.innerHTML = `
+                <div class="empty-players">
+                    Nije moguće dobiti live podatke.
+                </div>
+            `;
 
         }
 
-    </script>
+    }
+
+
+    /* =========================
+       TIME FORMAT
+    ========================= */
+
+    function formatTime(seconds) {
+
+        if (
+            seconds === undefined ||
+            seconds === null ||
+            isNaN(seconds)
+        ) {
+            return "--";
+        }
+
+        seconds = Math.floor(Number(seconds));
+
+        const hours =
+            Math.floor(seconds / 3600);
+
+        const minutes =
+            Math.floor((seconds % 3600) / 60);
+
+        if (hours > 0) {
+
+            return (
+                hours +
+                "h " +
+                minutes +
+                "m"
+            );
+
+        }
+
+        return minutes + "m";
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    loadServerStatus();
+
+    /*
+        Osvežavanje live statusa
+        svakih 15 sekundi.
+    */
+
+    setInterval(
+        loadServerStatus,
+        15000
+    );
+
+</script>
 
 </body>
 </html>
