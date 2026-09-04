@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sr">
 <head>
@@ -6,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sirmium Arena | CS 1.6</title>
-    <meta name="description" content="Sirmium Arena - CS 1.6 gaming server. Pridruži se našoj zajednici!">
-    <meta name="theme-color" content="#0a0a0a">
+
+    <meta name="description" content="Sirmium Arena - Counter-Strike 1.6 server. Pridruži se najboljoj ekipi!">
+    <meta name="theme-color" content="#e10600">
 
     <style>
         * {
@@ -22,27 +22,36 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #070707;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(225, 6, 0, 0.12), transparent 35%),
+                #070707;
             color: #fff;
             overflow-x: hidden;
         }
 
-        /* ===== SCROLLBAR ===== */
-
-        ::-webkit-scrollbar {
-            width: 8px;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #080808;
+        ::selection {
+            background: #e10600;
+            color: white;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #d40000;
-            border-radius: 10px;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        /* ===== HEADER ===== */
+        /* ================= HEADER ================= */
 
         header {
             position: fixed;
@@ -50,21 +59,14 @@
             left: 0;
             width: 100%;
             height: 75px;
-            z-index: 1000;
-            background: rgba(5, 5, 5, 0.90);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
-        }
-
-        .nav {
-            max-width: 1200px;
-            height: 100%;
-            margin: auto;
-            padding: 0 25px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 7%;
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.15);
+            z-index: 1000;
         }
 
         .logo {
@@ -74,193 +76,168 @@
         }
 
         .logo span {
-            color: #e00000;
+            color: #e10600;
         }
 
-        .nav-links {
+        nav {
             display: flex;
-            gap: 30px;
-            list-style: none;
+            gap: 28px;
         }
 
-        .nav-links a {
-            color: #ddd;
-            text-decoration: none;
+        nav a {
+            color: #aaa;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 700;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #e00000;
+        nav a:hover {
+            color: #fff;
         }
 
-        /* ===== HERO ===== */
+        .nav-discord {
+            padding: 10px 17px;
+            border: 1px solid rgba(225, 6, 0, 0.5);
+            border-radius: 8px;
+            color: #fff !important;
+        }
+
+        .nav-discord:hover {
+            background: #e10600;
+        }
+
+        /* ================= HERO ================= */
 
         .hero {
             min-height: 100vh;
-            position: relative;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             text-align: center;
-
-            background:
-                radial-gradient(circle at center, rgba(150, 0, 0, 0.18), transparent 45%),
-                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.95)),
-                #090909;
-
+            padding: 120px 20px 80px;
+            position: relative;
             overflow: hidden;
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            inset: 0;
-
-            background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-
-            background-size: 50px 50px;
-
-            mask-image: linear-gradient(to bottom, black, transparent);
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(225,6,0,0.22), transparent 68%);
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(10px);
+            z-index: -1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
+            max-width: 900px;
         }
 
-        .tag {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid rgba(220,0,0,0.5);
-            background: rgba(120,0,0,0.15);
-            border-radius: 4px;
-
-            color: #ff3333;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 16px;
+            border: 1px solid rgba(0,255,120,0.25);
+            background: rgba(0,255,120,0.05);
+            border-radius: 50px;
             font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 3px;
-
+            color: #8cffb7;
             margin-bottom: 25px;
         }
 
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff72;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #00ff72;
+        }
+
         .hero h1 {
-            font-size: clamp(55px, 10vw, 120px);
+            font-size: clamp(55px, 9vw, 120px);
             font-weight: 1000;
             letter-spacing: -5px;
             line-height: 0.9;
-
-            text-shadow:
-                0 0 20px rgba(255,0,0,0.25),
-                0 10px 40px rgba(0,0,0,0.8);
+            text-transform: uppercase;
+            text-shadow: 0 0 50px rgba(225,6,0,0.25);
         }
 
         .hero h1 span {
-            color: #d90000;
+            color: #e10600;
         }
 
-        .subtitle {
-            margin-top: 25px;
-            color: #aaa;
+        .hero-subtitle {
+            margin-top: 28px;
+            color: #999;
             font-size: 17px;
-            letter-spacing: 1px;
-        }
-
-        /* ===== SERVER BOX ===== */
-
-        .server-box {
-            margin: 35px auto 0;
-
-            max-width: 560px;
-            padding: 18px;
-
-            background: rgba(15,15,15,0.85);
-            border: 1px solid rgba(255,0,0,0.22);
-            border-radius: 8px;
-
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-        }
-
-        .server-label {
-            font-size: 11px;
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            line-height: 1.7;
         }
 
         .server-ip {
-            margin: 8px 0 15px;
-
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 22px;
+            background: #111;
+            border: 1px solid #262626;
+            border-radius: 10px;
             font-family: monospace;
-            font-size: 23px;
-            font-weight: bold;
-
+            font-size: 17px;
             color: #fff;
         }
 
-        .buttons {
+        .server-ip span {
+            color: #e10600;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 13px;
             flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 13px 24px;
-
-            border-radius: 5px;
-
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 13px;
-
-            cursor: pointer;
             border: none;
-
-            transition: 0.25s;
+            cursor: pointer;
+            padding: 15px 24px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 800;
+            transition: 0.3s;
         }
 
-        .btn-red {
-            background: #d00000;
-            color: #fff;
+        .btn-primary {
+            background: #e10600;
+            color: white;
+            box-shadow: 0 0 25px rgba(225,6,0,0.22);
         }
 
-        .btn-red:hover {
-            background: #ff0000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(220,0,0,0.3);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #ff120b;
+            box-shadow: 0 0 35px rgba(225,6,0,0.4);
         }
 
-        .btn-dark {
-            background: #171717;
-            color: #fff;
+        .btn-secondary {
+            background: #121212;
+            color: white;
             border: 1px solid #292929;
         }
 
-        .btn-dark:hover {
-            background: #222;
-            transform: translateY(-2px);
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: #e10600;
         }
 
-        /* ===== SECTION ===== */
+        /* ================= GENERAL ================= */
 
         section {
-            padding: 100px 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
+            padding: 100px 7%;
         }
 
         .section-title {
@@ -268,315 +245,615 @@
             margin-bottom: 55px;
         }
 
-        .section-title small {
-            color: #e00000;
-            font-size: 11px;
-            font-weight: bold;
+        .section-title .small {
+            color: #e10600;
+            font-size: 12px;
+            font-weight: 900;
             letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
         }
 
         .section-title h2 {
-            margin-top: 10px;
-            font-size: 40px;
+            font-size: clamp(32px, 5vw, 52px);
             font-weight: 900;
         }
 
         .section-title p {
-            margin-top: 12px;
+            margin: 15px auto 0;
+            max-width: 600px;
             color: #777;
+            line-height: 1.7;
         }
 
-        /* ===== FEATURES ===== */
+        /* ================= SERVER STATUS ================= */
 
-        .features {
-            background: #0b0b0b;
+        .status-section {
+            padding-top: 50px;
         }
 
-        .cards {
+        .status-grid {
+            max-width: 1100px;
+            margin: auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
 
-        .card {
-            padding: 30px;
-
-            background: #111;
-            border: 1px solid #1e1e1e;
-            border-radius: 8px;
-
+        .status-card {
+            background: linear-gradient(145deg, #111, #0b0b0b);
+            border: 1px solid #202020;
+            border-radius: 14px;
+            padding: 27px;
+            text-align: center;
             transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(220,0,0,0.45);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        .status-card:hover {
+            border-color: rgba(225,6,0,0.45);
+            transform: translateY(-4px);
         }
 
-        .icon {
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: rgba(210,0,0,0.12);
-            border: 1px solid rgba(210,0,0,0.25);
-            border-radius: 6px;
-
-            color: #e00000;
-            font-size: 20px;
-
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #777;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        /* ===== CONNECT ===== */
-
-        .connect {
-            background:
-                radial-gradient(circle at center, rgba(170,0,0,0.12), transparent 50%),
-                #080808;
-        }
-
-        .connect-box {
-            text-align: center;
-
-            padding: 55px 25px;
-
-            background: #101010;
-            border: 1px solid #202020;
-            border-radius: 10px;
-        }
-
-        .connect-box h2 {
-            font-size: 35px;
+        .status-card .icon {
+            font-size: 25px;
             margin-bottom: 15px;
         }
 
-        .connect-box p {
+        .status-card h3 {
+            font-size: 23px;
+            margin-bottom: 7px;
+        }
+
+        .status-card p {
             color: #777;
-            margin-bottom: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .commands {
-            max-width: 600px;
-            margin: 35px auto 0;
-
-            text-align: left;
+        .online {
+            color: #00ff72;
         }
 
-        .command {
-            padding: 15px;
+        /* ================= MAP ================= */
 
-            background: #080808;
-            border: 1px solid #1d1d1d;
-            border-radius: 5px;
+        .map-box {
+            max-width: 1100px;
+            margin: auto;
+            min-height: 300px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.3)),
+                radial-gradient(circle at 70% 40%, rgba(225,6,0,0.22), transparent 40%),
+                #151515;
+            border: 1px solid #252525;
+            display: flex;
+            align-items: center;
+        }
 
+        .map-content {
+            padding: 45px;
+        }
+
+        .map-label {
+            color: #e10600;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .map-content h3 {
+            font-size: 55px;
+            margin: 10px 0;
+        }
+
+        .map-content p {
+            color: #888;
+        }
+
+        .map-tag {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 9px 15px;
+            background: rgba(225,6,0,0.1);
+            border: 1px solid rgba(225,6,0,0.25);
+            color: #ff4b46;
+            border-radius: 7px;
+            font-size: 12px;
+        }
+
+        /* ================= TOP PLAYERS ================= */
+
+        .players-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .player {
+            display: grid;
+            grid-template-columns: 60px 1fr 100px 100px;
+            align-items: center;
+            padding: 18px 22px;
+            background: #0f0f0f;
+            border: 1px solid #202020;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .player:hover {
+            border-color: rgba(225,6,0,0.4);
+            transform: translateX(5px);
+        }
+
+        .rank {
+            font-size: 22px;
+            font-weight: 900;
+            color: #555;
+        }
+
+        .player:nth-child(1) .rank {
+            color: #e10600;
+        }
+
+        .player-name {
+            font-weight: 800;
+        }
+
+        .player-name small {
+            display: block;
+            color: #555;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .player-stat {
+            text-align: right;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .player-stat strong {
+            color: white;
+            display: block;
+            font-size: 16px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .feature {
+            padding: 30px;
+            background: #0e0e0e;
+            border: 1px solid #202020;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-6px);
+            border-color: rgba(225,6,0,0.4);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(225,6,0,0.1);
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
             margin-bottom: 10px;
-
-            font-family: monospace;
-            color: #ccc;
         }
 
-        .command span {
-            color: #e00000;
+        .feature p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
-        /* ===== RULES ===== */
+        /* ================= VIP ================= */
+
+        .vip-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .vip-card {
+            padding: 35px 28px;
+            background: linear-gradient(150deg, #111, #090909);
+            border: 1px solid #292929;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .vip-card.featured {
+            border-color: #e10600;
+            box-shadow: 0 0 35px rgba(225,6,0,0.12);
+        }
+
+        .vip-card .popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e10600;
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .vip-card h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .vip-price {
+            font-size: 35px;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        .vip-price span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .vip-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .vip-card li {
+            color: #999;
+            padding: 8px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #191919;
+        }
+
+        .vip-card li::before {
+            content: "✓";
+            color: #e10600;
+            margin-right: 8px;
+        }
+
+        /* ================= ADMINS ================= */
+
+        .admins {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .admin {
+            text-align: center;
+            background: #101010;
+            border: 1px solid #202020;
+            padding: 30px 20px;
+            border-radius: 14px;
+        }
+
+        .avatar {
+            width: 75px;
+            height: 75px;
+            margin: auto auto 17px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #e10600, #410000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            font-weight: 900;
+            box-shadow: 0 0 25px rgba(225,6,0,0.2);
+        }
+
+        .admin h3 {
+            margin-bottom: 6px;
+        }
+
+        .admin p {
+            color: #e10600;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* ================= NEWS ================= */
+
+        .news-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .news-card {
+            background: #101010;
+            border: 1px solid #202020;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .news-image {
+            height: 150px;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(225,6,0,0.35), transparent 60%),
+                #181818;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+        }
+
+        .news-content {
+            padding: 22px;
+        }
+
+        .news-date {
+            color: #e10600;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .news-content h3 {
+            margin: 10px 0;
+        }
+
+        .news-content p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ================= RULES ================= */
 
         .rules {
-            background: #0b0b0b;
-        }
-
-        .rules-list {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
+            display: grid;
+            gap: 10px;
         }
 
         .rule {
             display: flex;
-            gap: 18px;
-
-            padding: 20px;
-
-            border-bottom: 1px solid #1d1d1d;
+            align-items: center;
+            gap: 15px;
+            padding: 17px 20px;
+            background: #0f0f0f;
+            border: 1px solid #1d1d1d;
+            border-radius: 10px;
         }
 
         .rule-number {
-            color: #e00000;
+            color: #e10600;
             font-weight: 900;
-            font-family: monospace;
+            min-width: 25px;
         }
 
         .rule p {
             color: #aaa;
-            line-height: 1.6;
+            font-size: 14px;
         }
 
-        /* ===== DISCORD ===== */
+        /* ================= DISCORD ================= */
 
-        .discord {
-            text-align: center;
-            background: #080808;
+        .discord-section {
+            padding-bottom: 120px;
         }
 
         .discord-box {
-            max-width: 750px;
+            max-width: 900px;
             margin: auto;
-
-            padding: 50px 25px;
-
-            border-radius: 10px;
-
+            padding: 55px 35px;
+            text-align: center;
+            border-radius: 20px;
             background:
-                linear-gradient(135deg, rgba(80,60,160,0.12), rgba(0,0,0,0)),
+                radial-gradient(circle at 50% 0%, rgba(225,6,0,0.2), transparent 55%),
                 #101010;
+            border: 1px solid #292929;
+        }
 
-            border: 1px solid #222;
+        .discord-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
         }
 
         .discord-box h2 {
-            font-size: 35px;
-            margin-bottom: 15px;
+            font-size: 38px;
+            margin-bottom: 12px;
         }
 
         .discord-box p {
             color: #777;
-            margin-bottom: 30px;
+            max-width: 550px;
+            margin: auto;
+            line-height: 1.7;
         }
 
-        .discord-btn {
-            background: #5865F2;
-            color: white;
-        }
-
-        .discord-btn:hover {
-            background: #4752c4;
-            transform: translateY(-2px);
-        }
-
-        /* ===== FOOTER ===== */
+        /* ================= FOOTER ================= */
 
         footer {
-            padding: 35px 20px;
-
-            background: #050505;
-            border-top: 1px solid #151515;
-
-            text-align: center;
-        }
-
-        footer .footer-logo {
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        footer .footer-logo span {
-            color: #d00000;
-        }
-
-        footer p {
+            border-top: 1px solid #1c1c1c;
+            padding: 35px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             color: #555;
             font-size: 12px;
-            margin-top: 10px;
         }
 
-        /* ===== MOBILE ===== */
+        footer strong {
+            color: #aaa;
+        }
 
-        @media (max-width: 800px) {
+        /* ================= RESPONSIVE ================= */
 
-            .nav-links {
+        @media (max-width: 900px) {
+
+            nav {
                 display: none;
             }
 
-            .cards {
+            .status-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vip-grid {
                 grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .admins {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding-left: 15px;
+                padding-right: 15px;
             }
 
             .hero h1 {
                 letter-spacing: -3px;
             }
 
-            .subtitle {
+            .hero-subtitle {
                 font-size: 14px;
             }
 
             section {
-                padding: 75px 15px;
+                padding: 75px 18px;
             }
 
-            .section-title h2 {
-                font-size: 32px;
+            .status-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
             }
 
-            .server-ip {
+            .status-card {
+                padding: 20px 10px;
+            }
+
+            .status-card h3 {
                 font-size: 18px;
             }
-        }
 
-        /* ===== ANIMATION ===== */
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            .features {
+                grid-template-columns: 1fr;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .player {
+                grid-template-columns: 40px 1fr 65px;
             }
-        }
 
-        .hero-content {
-            animation: fadeUp 0.8s ease forwards;
+            .player .player-stat:last-child {
+                display: none;
+            }
+
+            .player-stat {
+                font-size: 11px;
+            }
+
+            .map-content {
+                padding: 30px 25px;
+            }
+
+            .map-content h3 {
+                font-size: 40px;
+            }
+
+            .discord-box {
+                padding: 40px 20px;
+            }
+
+            .discord-box h2 {
+                font-size: 29px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ================= HEADER ================= -->
 
     <header>
-        <nav class="nav">
 
-            <div class="logo">
-                SIRMIUM <span>ARENA</span>
-            </div>
+        <a href="#" class="logo">
+            SIRMIUM<span>ARENA</span>
+        </a>
 
-            <ul class="nav-links">
-                <li><a href="#pocetna">POČETNA</a></li>
-                <li><a href="#server">SERVER</a></li>
-                <li><a href="#pravila">PRAVILA</a></li>
-                <li><a href="#discord">DISCORD</a></li>
-            </ul>
-
+        <nav>
+            <a href="#server">Server</a>
+            <a href="#players">Players</a>
+            <a href="#features">Features</a>
+            <a href="#vip">VIP</a>
+            <a href="#rules">Rules</a>
+            <a href="#discord" class="nav-discord">Discord</a>
         </nav>
+
     </header>
 
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
 
-    <section class="hero" id="pocetna">
+    <section class="hero">
 
         <div class="hero-content">
 
-            <div class="tag">
-                COUNTER-STRIKE 1.6 SERVER
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                SERVER ONLINE
             </div>
 
             <h1>
@@ -584,267 +861,38 @@
                 <span>ARENA</span>
             </h1>
 
-            <p class="subtitle">
-                Dobrodošli na server gde počinje prava akcija.
+            <p class="hero-subtitle">
+                Counter-Strike 1.6 server za igrače koji žele
+                dobru atmosferu, fer igru i ozbiljan gameplay.
             </p>
 
-            <div class="server-box">
-
-                <div class="server-label">
-                    SERVER IP
-                </div>
-
-                <div class="server-ip" id="serverIP">
-                    185.211.103.141:3076
-                </div>
-
-                <div class="buttons">
-
-                    <button class="btn btn-red" onclick="copyIP()">
-                        KOPIRAJ IP
-                    </button>
-
-                    <a
-                        class="btn btn-dark"
-                        href="steam://connect/185.211.103.141:3076"
-                    >
-                        POVEŽI SE
-                    </a>
-
-                </div>
-
+            <div class="server-ip">
+                IP:
+                <span>185.211.103.141:3076</span>
             </div>
 
-        </div>
-
-    </section>
-
-
-    <!-- SERVER -->
-
-    <section class="features" id="server">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <small>SIRMIUM ARENA</small>
-
-                <h2>ZAŠTO BAŠ MI?</h2>
-
-                <p>
-                    Sve što ti treba za dobar CS 1.6 gameplay.
-                </p>
-
-            </div>
-
-
-            <div class="cards">
-
-                <div class="card">
-
-                    <div class="icon">🎯</div>
-
-                    <h3>FER IGRANJE</h3>
-
-                    <p>
-                        Cilj nam je da održimo kvalitetnu i fer igru
-                        za sve igrače na serveru.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="icon">⚡</div>
-
-                    <h3>BRZA AKCIJA</h3>
-
-                    <p>
-                        Uđi na server, izaberi stranu i kreni u borbu.
-                        Bez nepotrebnog čekanja.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <div class="icon">👑</div>
-
-                    <h3>AKTIVNA ZAJEDNICA</h3>
-
-                    <p>
-                        Druži se sa ostalim igračima i postani deo
-                        Sirmium Arena zajednice.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONNECT -->
-
-    <section class="connect">
-
-        <div class="container">
-
-            <div class="connect-box">
-
-                <h2>KAKO DA UĐEŠ?</h2>
-
-                <p>
-                    Potrebno je samo nekoliko sekundi.
-                </p>
-
-
-                <div class="buttons">
-
-                    <button class="btn btn-red" onclick="copyIP()">
-                        📋 KOPIRAJ IP
-                    </button>
-
-                    <a
-                        class="btn discord-btn"
-                        href="https://discord.gg/gexH9HAxdq"
-                        target="_blank"
-                    >
-                        💬 UĐI NA DISCORD
-                    </a>
-
-                </div>
-
-
-                <div class="commands">
-
-                    <div class="command">
-                        <span>connect</span> 185.211.103.141:3076
-                    </div>
-
-                    <div class="command">
-                        Otvori konzolu u CS 1.6 i nalepi komandu.
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- RULES -->
-
-    <section class="rules" id="pravila">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <small>SERVER</small>
-
-                <h2>PRAVILA IGRE</h2>
-
-                <p>
-                    Poštuj igrače i uživaj u igri.
-                </p>
-
-            </div>
-
-
-            <div class="rules-list">
-
-                <div class="rule">
-
-                    <div class="rule-number">01</div>
-
-                    <p>
-                        Zabranjeno je korišćenje cheatova, hackova i
-                        bilo kakvih nedozvoljenih programa.
-                    </p>
-
-                </div>
-
-
-                <div class="rule">
-
-                    <div class="rule-number">02</div>
-
-                    <p>
-                        Poštuj ostale igrače i članove administracije.
-                    </p>
-
-                </div>
-
-
-                <div class="rule">
-
-                    <div class="rule-number">03</div>
-
-                    <p>
-                        Zabranjeno je namerno ometanje igre drugih igrača.
-                    </p>
-
-                </div>
-
-
-                <div class="rule">
-
-                    <div class="rule-number">04</div>
-
-                    <p>
-                        Ne zloupotrebljavaj bugove i greške servera.
-                    </p>
-
-                </div>
-
-
-                <div class="rule">
-
-                    <div class="rule-number">05</div>
-
-                    <p>
-                        Administracija zadržava pravo da reaguje u
-                        situacijama koje nisu posebno navedene.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DISCORD -->
-
-    <section class="discord" id="discord">
-
-        <div class="container">
-
-            <div class="discord-box">
-
-                <h2>PRIDRUŽI SE ZAJEDNICI</h2>
-
-                <p>
-                    Uđi na naš Discord i budi u toku sa svim novostima,
-                    događajima i informacijama.
-                </p>
+            <div class="hero-buttons">
 
                 <a
+                    class="btn btn-primary"
+                    href="steam://connect/185.211.103.141:3076"
+                >
+                    🎮 PLAY NOW
+                </a>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="copyIP()"
+                >
+                    📋 COPY IP
+                </button>
+
+                <a
+                    class="btn btn-secondary"
                     href="https://discord.gg/gexH9HAxdq"
                     target="_blank"
-                    class="btn discord-btn"
                 >
-                    💬 PRIDRUŽI SE DISCORDU
+                    💬 DISCORD
                 </a>
 
             </div>
@@ -854,26 +902,698 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- ================= SERVER STATUS ================= -->
+
+    <section id="server" class="status-section">
+
+        <div class="section-title">
+
+            <span class="small">Server Status</span>
+
+            <h2>Live informacije</h2>
+
+            <p>
+                Sve najbitnije informacije o Sirmium Arena serveru
+                na jednom mestu.
+            </p>
+
+        </div>
+
+        <div class="status-grid">
+
+            <div class="status-card">
+
+                <div class="icon">🟢</div>
+
+                <h3 class="online">
+                    ONLINE
+                </h3>
+
+                <p>Status</p>
+
+            </div>
+
+            <div class="status-card">
+
+                <div class="icon">👥</div>
+
+                <h3>
+                    18 / 32
+                </h3>
+
+                <p>Igrači</p>
+
+            </div>
+
+            <div class="status-card">
+
+                <div class="icon">🗺️</div>
+
+                <h3>
+                    de_dust2
+                </h3>
+
+                <p>Mapa</p>
+
+            </div>
+
+            <div class="status-card">
+
+                <div class="icon">📡</div>
+
+                <h3>
+                    32 ms
+                </h3>
+
+                <p>Ping</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CURRENT MAP ================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <span class="small">Current Map</span>
+
+            <h2>Trenutna mapa</h2>
+
+        </div>
+
+        <div class="map-box">
+
+            <div class="map-content">
+
+                <div class="map-label">
+                    SIRMIUM ARENA
+                </div>
+
+                <h3>
+                    de_dust2
+                </h3>
+
+                <p>
+                    Najpoznatija CS 1.6 mapa svih vremena.
+                </p>
+
+                <div class="map-tag">
+                    CLASSIC MAP
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TOP PLAYERS ================= -->
+
+    <section id="players">
+
+        <div class="section-title">
+
+            <span class="small">Leaderboard</span>
+
+            <h2>Top igrači</h2>
+
+            <p>
+                Najbolji igrači na Sirmium Areni.
+            </p>
+
+        </div>
+
+        <div class="players-grid">
+
+            <div class="player">
+
+                <div class="rank">01</div>
+
+                <div class="player-name">
+                    Sirmium | K1NG
+                    <small>Online</small>
+                </div>
+
+                <div class="player-stat">
+                    <strong>2.41</strong>
+                    K/D
+                </div>
+
+                <div class="player-stat">
+                    <strong>1840</strong>
+                    SCORE
+                </div>
+
+            </div>
+
+
+            <div class="player">
+
+                <div class="rank">02</div>
+
+                <div class="player-name">
+                    BALKAN BEAST
+                    <small>Online</small>
+                </div>
+
+                <div class="player-stat">
+                    <strong>2.18</strong>
+                    K/D
+                </div>
+
+                <div class="player-stat">
+                    <strong>1695</strong>
+                    SCORE
+                </div>
+
+            </div>
+
+
+            <div class="player">
+
+                <div class="rank">03</div>
+
+                <div class="player-name">
+                    AK47 | DARK
+                    <small>Online</small>
+                </div>
+
+                <div class="player-stat">
+                    <strong>1.96</strong>
+                    K/D
+                </div>
+
+                <div class="player-stat">
+                    <strong>1530</strong>
+                    SCORE
+                </div>
+
+            </div>
+
+
+            <div class="player">
+
+                <div class="rank">04</div>
+
+                <div class="player-name">
+                    S4MURAI
+                    <small>Online</small>
+                </div>
+
+                <div class="player-stat">
+                    <strong>1.84</strong>
+                    K/D
+                </div>
+
+                <div class="player-stat">
+                    <strong>1420</strong>
+                    SCORE
+                </div>
+
+            </div>
+
+
+            <div class="player">
+
+                <div class="rank">05</div>
+
+                <div class="player-name">
+                    HEADSHOT
+                    <small>Online</small>
+                </div>
+
+                <div class="player-stat">
+                    <strong>1.72</strong>
+                    K/D
+                </div>
+
+                <div class="player-stat">
+                    <strong>1310</strong>
+                    SCORE
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section id="features">
+
+        <div class="section-title">
+
+            <span class="small">Why Sirmium</span>
+
+            <h2>Zašto igrati kod nas?</h2>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🎯
+                </div>
+
+                <h3>Fair Play</h3>
+
+                <p>
+                    Aktivna administracija i jasna pravila
+                    bez nepotrebnog maltretiranja igrača.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <h3>Stabilan Server</h3>
+
+                <p>
+                    Stabilan gameplay i optimizovan server
+                    za što bolje iskustvo.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <h3>Anti-Cheat</h3>
+
+                <p>
+                    Zaštita servera i aktivna kontrola protiv
+                    cheatovanja.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    👑
+                </div>
+
+                <h3>VIP Sistem</h3>
+
+                <p>
+                    Posebne pogodnosti i privilegije za
+                    igrače koji podržavaju server.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🎁
+                </div>
+
+                <h3>Eventi</h3>
+
+                <p>
+                    Organizujemo posebne evente, takmičenja
+                    i nagrade za aktivne igrače.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    💬
+                </div>
+
+                <h3>Community</h3>
+
+                <p>
+                    Druženje i komunikacija preko našeg
+                    Discord community-ja.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VIP ================= -->
+
+    <section id="vip">
+
+        <div class="section-title">
+
+            <span class="small">VIP System</span>
+
+            <h2>VIP paketi</h2>
+
+            <p>
+                Podrži server i otključaj dodatne pogodnosti.
+            </p>
+
+        </div>
+
+        <div class="vip-grid">
+
+            <div class="vip-card">
+
+                <h3>VIP</h3>
+
+                <div class="vip-price">
+                    5€ <span>/ mesec</span>
+                </div>
+
+                <ul>
+                    <li>VIP tag</li>
+                    <li>VIP chat boja</li>
+                    <li>Prioritet pri ulasku</li>
+                    <li>Posebne pogodnosti</li>
+                </ul>
+
+            </div>
+
+
+            <div class="vip-card featured">
+
+                <div class="popular">
+                    NAJPOPULARNIJI
+                </div>
+
+                <h3>VIP+</h3>
+
+                <div class="vip-price">
+                    8€ <span>/ mesec</span>
+                </div>
+
+                <ul>
+                    <li>Sve iz VIP paketa</li>
+                    <li>Veći prioritet</li>
+                    <li>Poseban VIP skin</li>
+                    <li>Dodatne pogodnosti</li>
+                </ul>
+
+            </div>
+
+
+            <div class="vip-card">
+
+                <h3>ELITE</h3>
+
+                <div class="vip-price">
+                    12€ <span>/ mesec</span>
+                </div>
+
+                <ul>
+                    <li>Sve VIP+ pogodnosti</li>
+                    <li>Najveći prioritet</li>
+                    <li>Elite tag</li>
+                    <li>Posebne privilegije</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADMINS ================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <span class="small">Administration</span>
+
+            <h2>Administracija</h2>
+
+            <p>
+                Ljudi koji brinu da Sirmium Arena ostane
+                fer i zabavna za sve.
+            </p>
+
+        </div>
+
+        <div class="admins">
+
+            <div class="admin">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <h3>Sirmium</h3>
+
+                <p>Owner</p>
+
+            </div>
+
+
+            <div class="admin">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <h3>Admin</h3>
+
+                <p>Head Admin</p>
+
+            </div>
+
+
+            <div class="admin">
+
+                <div class="avatar">
+                    M
+                </div>
+
+                <h3>Moderator</h3>
+
+                <p>Moderator</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NEWS ================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <span class="small">News</span>
+
+            <h2>Najnovije informacije</h2>
+
+        </div>
+
+        <div class="news-grid">
+
+            <div class="news-card">
+
+                <div class="news-image">
+                    🔥
+                </div>
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        NOVOST
+                    </div>
+
+                    <h3>
+                        Sirmium Arena je otvorena!
+                    </h3>
+
+                    <p>
+                        Pridruži se serveru i postani deo
+                        naše CS 1.6 zajednice.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="news-card">
+
+                <div class="news-image">
+                    🏆
+                </div>
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        EVENT
+                    </div>
+
+                    <h3>
+                        Uskoro prvi turnir
+                    </h3>
+
+                    <p>
+                        Prati Discord za informacije o
+                        prvom community turniru.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="news-card">
+
+                <div class="news-image">
+                    ⚡
+                </div>
+
+                <div class="news-content">
+
+                    <div class="news-date">
+                        UPDATE
+                    </div>
+
+                    <h3>
+                        Novi sistemi
+                    </h3>
+
+                    <p>
+                        Radimo na novim funkcijama,
+                        mapama i sistemima za server.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RULES ================= -->
+
+    <section id="rules">
+
+        <div class="section-title">
+
+            <span class="small">Server Rules</span>
+
+            <h2>Pravila servera</h2>
+
+        </div>
+
+        <div class="rules">
+
+            <div class="rule">
+                <div class="rule-number">01</div>
+                <p>Zabranjeno je korišćenje cheatova i skripti.</p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">02</div>
+                <p>Zabranjeno je vređanje drugih igrača i administracije.</p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">03</div>
+                <p>Zabranjen je spam i nepotrebno ometanje igre.</p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">04</div>
+                <p>Poštuj ostale igrače i igraj fer.</p>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">05</div>
+                <p>Odluke administracije moraju se poštovati.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DISCORD ================= -->
+
+    <section id="discord" class="discord-section">
+
+        <div class="discord-box">
+
+            <div class="discord-icon">
+                💬
+            </div>
+
+            <h2>
+                Pridruži se Discordu
+            </h2>
+
+            <p>
+                Uđi u naš Discord server, prati novosti,
+                prijavi igrača, razgovaraj sa zajednicom
+                i saznaj kada su sledeći eventi.
+            </p>
+
+            <div style="margin-top: 28px;">
+
+                <a
+                    href="https://discord.gg/gexH9HAxdq"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    UĐI NA DISCORD
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
-        <div class="footer-logo">
-            SIRMIUM <span>ARENA</span>
+        <div>
+            © 2026 <strong>Sirmium Arena</strong>
         </div>
 
-        <p>
-            © 2026 Sirmium Arena. Sva prava zadržana.
-        </p>
-
-        <p>
-            Counter-Strike 1.6 Community Server
-        </p>
+        <div>
+            Counter-Strike 1.6 Community
+        </div>
 
     </footer>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- ================= JAVASCRIPT ================= -->
 
     <script>
 
@@ -881,21 +1601,13 @@
 
             const ip = "185.211.103.141:3076";
 
-            navigator.clipboard.writeText(ip).then(function() {
+            navigator.clipboard.writeText(ip).then(function () {
 
-                const buttons = document.querySelectorAll(".btn-red");
+                alert("IP adresa je kopirana: " + ip);
 
-                buttons.forEach(function(button) {
+            }).catch(function () {
 
-                    const original = button.innerHTML;
-
-                    button.innerHTML = "✓ IP KOPIRAN";
-
-                    setTimeout(function() {
-                        button.innerHTML = original;
-                    }, 1800);
-
-                });
+                prompt("Kopiraj IP adresu:", ip);
 
             });
 
@@ -905,4 +1617,3 @@
 
 </body>
 </html>
-```
